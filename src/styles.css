@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lato&display=swap');
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    /* custom props */
+    /* fonts*/
+    --font-main: 'Inter', sans-serif;
+    --font-btn: 'Lato', sans-serif;
+
+    /* font weight */
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+
+    /* font sizes */
+    --fs-h1: 4rem;
+    --fs-h2: 2.8rem;
+    --fs-h3: 2.6rem;
+    --fs-h4: 2.4rem;
+
+    --fs-med: 2rem;
+    --fs-sm: 1.8rem;
+
+    --fs-p-reg: 1.5rem;
+    --fs-p-lrg: 1.6rem;
+
+    /* colors */
+    --color-hero-bg: #614DD1;
+    --color-light-bg: #EFF2FA;
+    --color-btn: #EB5757;
+    --color-btn-border: #FF425C;
+    --color-font: #09202B;
+    --color-font-sec: #435866;
+    --color-font-white: #ffffff;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+    font-size: var(--fs-p-reg);
+    font-family: var(--font-main);
+    color: var(--color-font);
+}
+
+header {
+    background-image: url(./static/hero_bg.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+
+    color: var(--color-font-white);
+
+}
+
+h1 {
+    font-size: var(--fs-h1);
+}
+
+h2 {
+    font-size: var(--fs-h2);
+}
+
+h3 {
+    font-size: var(--fs-h3);
+}
+
+h4 {
+    font-size: var(--fs-h4);
+}
+
+p {
+    font-size: var(--fs-p-reg);
+}
+
+p.med {
+    font-size: var(--fs-med);
+}
+
+button {
+    font-family: var(--font-btn);
+    background-color: var(--color-btn);
+    color: var(--color-font-white);
+    padding: 1rem;
+    border: 1px solid var(--color-btn-border);
+    border-radius: 5rem;
+}
+
+header a {
+    color: var(--color-font-white);
+    text-decoration: none;
+}
+
+.content-grid {
+    --padding-inline: 1rem;
+    --content-max-width: 1170px;
+
+    display: grid;
+    grid-template-columns:
+        [full-width-start] minmax(var(--padding-inline), 1fr) [content-start] min(100% - (var(--padding-inline) * 2), var(--content-max-width)) [content-end] minmax(var(--padding-inline), 1fr) [full-width-end];
+}
+
+.content-grid> :not(.full-width),
+.full-width> :not(.full-width) {
+    grid-column: content;
+}
+
+.content-grid>.full-width {
+    grid-column: full-width;
+    display: grid;
+    grid-template-columns: inherit;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.skill-req {
+    flex-wrap: wrap;
+    background-color: var(--color-font-white);
+    color: var(--color-font);
+    padding: 3rem 0 2rem 0;
+    border-radius: 1rem;
+}
+
+.submenu {
+    display: none;
+}
