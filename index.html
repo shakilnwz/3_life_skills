@@ -12,31 +12,38 @@
 
 <body>
     <header class="content-grid">
-        <div class="header__layout">
+        <div class="header__layout flex-center">
             <img src="./src/static/logo.svg" alt="logo" class="logo">
-            <nav class="">
-                <ul>
+            <nav class="nav flex-center">
+                <ul class="nav__menu flex-center">
                     <li><a href="#">Home</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#team">Team</a></li>
-                    <li><a href="#coaching">Coaching
-                            <ul class="submenu">
+                    <li><a href="#coaching">Coaching <img src="./src/static/triangle_white.svg" alt="unfold">
+                            <ul class="nav__submenu">
                                 <li>item</li>
                                 <li>item</li>
                                 <li>item</li>
                             </ul>
                         </a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact">Contact</a>
+                    </li>
                     <li><a href="#faq">FAQ</a></li>
                 </ul>
-                <a href="#profile">
-                    <svg width="24" height="21" viewBox="0 0 24 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 14.9753 22.9172 17.6978 21.1241 19.7947C19.4075 17.0871 16.1343 15.2576 12.3788 15.2576C8.39332 15.2576 4.95114 17.318 3.33622 20.303C1.26978 18.1473 0 15.2219 0 12ZM15.529 10.3894C15.529 8.33569 13.86 6.66667 11.8063 6.66667C9.75259 6.66667 8.08357 8.33569 8.08357 10.3894C8.08357 12.4431 9.75259 14.1121 11.8063 14.1121C13.86 14.1121 15.529 12.4431 15.529 10.3894Z"
-                            fill="white" />
-                    </svg>
-                </a>
-                <button>Get Started</button>
+                <span id="profile" href="#profile">
+                    <img src="./src/static/profile_ico.svg" alt="profile">
+                    <div id="profile__card" class="flex-center">
+                        <svg viewBox="0 0 24 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 14.9753 22.9172 17.6978 21.1241 19.7947C19.4075 17.0871 16.1343 15.2576 12.3788 15.2576C8.39332 15.2576 4.95114 17.318 3.33622 20.303C1.26978 18.1473 0 15.2219 0 12ZM15.529 10.3894C15.529 8.33569 13.86 6.66667 11.8063 6.66667C9.75259 6.66667 8.08357 8.33569 8.08357 10.3894C8.08357 12.4431 9.75259 14.1121 11.8063 14.1121C13.86 14.1121 15.529 12.4431 15.529 10.3894Z"
+                                fill="var(--color-hero-bg)" />
+                        </svg>
+                        <p>John Doe</p>
+
+                        <a class="btn" href="#profile_page">View Profile</a>
+                    </div>
+                </span>
+                <a class="btn" href="#">Get Started</a>
             </nav>
         </div>
         <section class="hero">
@@ -51,65 +58,71 @@
                 digital one. We are constantly taking the next step towards bringing a workplace culture from a real
                 space, to a digital one.
             </p>
-            <div class="rating__summary">
+            <div class="rating__summary flex-center">
                 <span class="rating__sum">4.7</span>
-                <img src="/src/static/star.svg" alt="star">
-                <img src="/src/static/star.svg" alt="star">
-                <img src="/src/static/star.svg" alt="star">
-                <img src="/src/static/star.svg" alt="star">
-                <img src="/src/static/star.svg" alt="star">
+                <div>
+                    <img src="/src/static/star.svg" alt="star">
+                    <img src="/src/static/star.svg" alt="star">
+                    <img src="/src/static/star.svg" alt="star">
+                    <img src="/src/static/star.svg" alt="star">
+                    <img src="/src/static/star.svg" alt="star">
+                </div>
                 <span class="total_rated">2,696 Ratings</span>
                 <img src="./src/static/paperplane.svg" alt="flying paperplane">
             </div>
-            <button>Start Now</button>
+            <a href="#" class="hero__start btn">Start Now</a>
             <span class="total_enrolled">3,567 Larners Enrolled</span>
-
         </section>
         <ul class="skill-req flex-center">
             <li class="flex-center">
                 <img src="./src/static/analytics.svg" alt="analytics">
                 <span>
                     <p>Skill level</p>
-                    <p class="med">Beginner</p>
+                    <h5>Beginner</h5>
                 </span>
             </li>
             <li class="flex-center">
                 <img src="./src/static/clock.svg" alt="clock">
                 <span>
                     <p>Time to complete</p>
-                    <p class="med">Approx. 9 hours</p>
+                    <h5>Approx. 9 hours</h5>
                 </span>
             </li>
             <li class="flex-center">
                 <img src="./src/static/cert.svg" alt="certificate icon">
                 <span>
                     <p>Certificate of completion</p>
-                    <p class="med">Included with paid plans</p>
+                    <h5>Included with paid plans</h5>
                 </span>
             </li>
             <li class="flex-center">
                 <img src="./src/static/prereq.svg" alt="prerequisites">
                 <span>
                     <p>Prerequisites</p>
-                    <p class="med">None</p>
+                    <h5>None</h5>
                 </span>
             </li>
         </ul>
     </header>
     <div class="main content-grid">
-        <section class="about-course">
-            <div class="about__detail">
-                <h2>About this course</h2>
-                <p>
-                    We are constantly taking the next step towards bringing a workplace culture from a real space, to a
-                    digital one. We are constantly taking the next step towards bringing a workplace culture from a real
-                    space, to a digital one. We are constantly taking the next step towards bringing a workplace culture
-                    from a real space, to a digital one.
-                </p>
+        <section class="about-course flex-center">
+            <div>
+                <div class="about__detail">
+                    <h2>About this course</h2>
+                    <p>
+                        We are constantly taking the next step towards bringing a workplace culture from a real space,
+                        to a
+                        digital one. We are constantly taking the next step towards bringing a workplace culture from a
+                        real
+                        space, to a digital one. We are constantly taking the next step towards bringing a workplace
+                        culture
+                        from a real space, to a digital one.
+                    </p>
+                </div>
                 <a href="#more">See more about courses <img src="./src/static/triangle_blue.svg" alt="triangle"></a>
             </div>
-            <aside class="skill">
-                <h4>Skills you'll gain</h4>
+            <div class="skill">
+                <h5>Skills you'll gain</h5>
                 <ul>
                     <li>
                         <img src="./src/static/checkbox_violet.svg" alt="checkbox">
@@ -128,43 +141,419 @@
                         <p>Web problem solving</p>
                     </li>
                 </ul>
-            </aside>
+            </div>
         </section>
         <section class="curriculum">
             <h4>Course curriculum</h4>
-            <div class="course__detail">
-                <ul>
+            <div class="course_detail flex-center">
+                <ul class="course_detail__summary flex-center">
                     <li>
-                        <img src="" alt="">
-                        <p></p>
+                        <img src="./src/static/dot_violet.svg" alt="dot">
+                        1000+ Videos
+                    </li>
+                    <li>
+                        <img src="./src/static/dot_green.svg" alt="dot">
+                        6+ Assignment
+                    </li>
+                    <li>
+                        <img src="./src/static/dot_blue.svg" alt="dot">
+                        100+ Quizzes
+                    </li>
+                    <li>
+                        <img src="./src/static/dot_red.svg" alt="dot">
+                        200+ Problem Solving
                     </li>
                 </ul>
+                <div class="curriculum__right-actions flex-center">
+                    <span id="expand_all" class="">Expand All Sections</span>
+                    <span class="social">
+                        <a href="http://facebook.com">
+                            <img src="/src/static/fb_ico.svg" />
+                        </a>
+                        <a href="http://twitter.com">
+                            <img src="/src/static/twitter.svg" />
+                        </a>
+                        <a href="http://linkedin.com">
+                            <img src="/src/static/linkedin.svg" />
+                        </a>
+                    </span>
+                </div>
 
+            </div>
+            <div class="daily__lessons">
+                <div class="lesson">
+                    <p class="red">Day 1</p>
+                    <div class="title_expand flex-center">
+                        <h5>
+                            Introduction to Front-End Enginner Career Path
+                        </h5>
+                        <img class="expand-button" src="./src/static/unfold_big.svg" alt="unfold">
+                    </div>
+                    <p>Welcome to the Front-End Enginner Career Path!</p>
+                    <ul class="lesson__days">
+                        <li class="lesson__task">
+                            <p>
+                                &bull; CoreSkill
+                            </p>
+                            <hr class="innerline">
+                            <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
+                            <ul class="lesson__subtask hidden">
+                                <li>some text</li>
+                            </ul>
+                        </li>
+                        <li class="lesson__task">
+                            <p>
+                                &bull; Problem Solving
+                            </p>
+                            <hr class="innerline">
+                            <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
+                            <ul class="lesson__subtask hidden">
+                            </ul>
+                        </li>
+                        <li class="lesson__task">
+                            <p>
+                                &bull; Communication
+                            </p>
+                            <hr class="innerline">
+                            <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
+                            <ul class="lesson__subtask hidden">
+                            </ul>
+                        </li>
+                    </ul>
+                    <hr class="innerline">
+                </div>
+                <div class="lesson">
+                    <p class="red">Day 2</p>
+                    <div class="title_expand flex-center">
+                        <h5>
+                            Overview of Web Development
+                        </h5>
+                        <img class="expand-button" src="./src/static/unfold_big.svg" alt="unfold">
+                    </div>
+                    <p>Be introduced to the field of front-end web development.</p>
+                    <ul class="lesson__days hidden">
+                        <li class="lesson__task">
+                            <p>
+                                &bull; CoreSkill
+                            </p>
+                            <hr class="innerline">
+                            <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
+                            <ul class="lesson__subtask hidden">
+                                <li>some text</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <hr class="innerline">
+                </div>
+                <div class="lesson">
+                    <p class="red">Day 3</p>
+                    <div class="title_expand flex-center">
+                        <h5>
+                            Fundamentals of HTML
+                        </h5>
+                        <img class="expand-button" src="./src/static/unfold_big.svg" alt="unfold">
+                    </div>
+                    <p>Learn to build a structure for a website using HTML.</p>
+                    <ul class="lesson__days hidden">
+                        <li class="lesson__task">
+                            <p>
+                                &bull; CoreSkill
+                            </p>
+                            <hr class="innerline">
+                            <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
+                            <ul class="lesson__subtask hidden">
+                                <li>some text</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <hr class="innerline">
+                </div>
+                <div class="lesson">
+                    <p class="red">Day 4</p>
+                    <div class="title_expand flex-center">
+                        <h5>
+                            Semantic HTML
+                        </h5>
+                        <img class="expand-button" src="./src/static/unfold_big.svg" alt="unfold">
+                    </div>
+                    <p>Write clearer, more accessible HTML using Semantic HTML tags.</p>
+                    <ul class="lesson__days hidden">
+                        <li class="lesson__task">
+                            <p>
+                                &bull; CoreSkill
+                            </p>
+                            <hr class="innerline">
+                            <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
+                            <ul class="lesson__subtask hidden">
+                                <li>some text</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <hr class="innerline">
+                </div>
+                <div class="lesson">
+                    <p class="red">Day 5</p>
+                    <div class="title_expand flex-center">
+                        <h5>
+                            Developing Websites Locally
+                        </h5>
+                        <img class="expand-button" src="./src/static/unfold_big.svg" alt="unfold">
+                    </div>
+                    <p>Get acquainted with text editors and Chrome DevTools to develop websites locally.</p>
+                    <ul class="lesson__days hidden">
+                        <li class="lesson__task">
+                            <p>
+                                &bull; CoreSkill
+                            </p>
+                            <hr class="innerline">
+                            <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
+                            <ul class="lesson__subtask hidden">
+                                <li>some text</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <hr class="innerline">
+                </div>
+                <div class="lesson">
+                    <p class="red">Day 6</p>
+                    <div class="title_expand flex-center">
+                        <h5>
+                            Deploying Websites
+                        </h5>
+                        <img class="expand-button" src="./src/static/unfold_big.svg" alt="unfold">
+                    </div>
+                    <p>Learn how to deploy websites using GitHub Pages and the command line.</p>
+                    <ul class="lesson__days hidden">
+                        <li class="lesson__task">
+                            <p>
+                                &bull; CoreSkill
+                            </p>
+                            <hr class="innerline">
+                            <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
+                            <ul class="lesson__subtask hidden">
+                                <li>some text</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <hr class="innerline">
+                </div>
+                <div class="lesson">
+                    <p class="red">Day 7</p>
+                    <div class="title_expand flex-center">
+                        <h5>
+                            Improved Styling with CSS
+                        </h5>
+                        <img class="expand-button" src="./src/static/unfold_big.svg" alt="unfold">
+                    </div>
+                    <p>Use intermediate-level CSS to customize styles and implement navigation elements.</p>
+                    <ul class="lesson__days hidden">
+                        <li class="lesson__task">
+                            <p>
+                                &bull; CoreSkill
+                            </p>
+                            <hr class="innerline">
+                            <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
+                            <ul class="lesson__subtask hidden">
+                                <li>some text</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <hr class="innerline">
+                </div>
+                <div class="lesson">
+                    <p class="red">Day 8</p>
+                    <div class="title_expand flex-center">
+                        <h5>
+                            Fundamentals of Web Design
+                        </h5>
+                        <img class="expand-button" src="./src/static/unfold_big.svg" alt="unfold">
+                    </div>
+                    <p>Explore best user interface (UI) design practices to implement CSS.</p>
+                    <ul class="lesson__days hidden">
+                        <li class="lesson__task">
+                            <p>
+                                &bull; CoreSkill
+                            </p>
+                            <hr class="innerline">
+                            <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
+                            <ul class="lesson__subtask hidden">
+                                <li>some text</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <hr class="innerline">
+                </div>
             </div>
         </section>
         <section class="about__author">
-
+            <h4>About the author</h4>
+            <a href="#author" class="author">
+                <img src="./src/static/author.png" alt="author">
+                <h6>Musab Abdullah</h6>
+            </a>
+            <p>
+                We are constantly taking the next step towards bringing a workplace culture from a real space, to a
+                digital one. We are constantly taking the next step towards bringing a workplace culture from a real
+                space, to a digital one. We are constantly taking the next step towards bringing a workplace culture
+                from a real space, to a digital one. We are constantly taking the next step towards bringing a workplace
+                culture from a real space, to a digital one.
+            </p>
+            <a href="">See more courses by Musab Abdullah <img src="./src/static/triangle_blue.svg" alt="pointer"></a>
         </section>
-        <section class="review">
+        <section class="review full-width">
+            <h2>Reviews from learners</h2>
+            <p>
+                We are constantly taking the next step towards bringing a workplace culture from a real space, to a
+                digital one.
+            </p>
+            <ul class="review__cards flex-center">
+                <li class="card">
+                    <img src="./src/static/reviewer_1.png" alt="reviewer">
+                    <h6 class="learner_name">Melissa Grote</h6>
+                    <p class="learner_prof">
+                        <span class="learner_country">USA</span> 3life Skills Learner
+                    </p>
+                    <span class="stars">
+                        <img src="./src/static/star.svg" alt="star">
+                        <img src="./src/static/star.svg" alt="star">
+                        <img src="./src/static/star.svg" alt="star">
+                        <img src="./src/static/star.svg" alt="star">
+                        <img src="./src/static/star.svg" alt="star">
 
+                    </span>
+                    <p class="detail_review">
+                        Communication solutions to increase employee engagement, build company culture, and provide a
+                        means of communication for all employees.
+                    </p>
+                </li>
+                <li class="card">
+                    <img src="./src/static/reviewer_1.png" alt="reviewer">
+                    <h6 class="learner_name">Melissa Grote</h6>
+                    <p class="learner_prof">
+                        <span class="learner_country">USA</span> 3life Skills Learner
+                    </p>
+                    <span class="stars">
+                        <img src="./src/static/star.svg" alt="star">
+                        <img src="./src/static/star.svg" alt="star">
+                        <img src="./src/static/star.svg" alt="star">
+                        <img src="./src/static/star.svg" alt="star">
+                        <img src="./src/static/star.svg" alt="star">
+                    </span>
+                    <p class="detail_review">
+                        Communication solutions to increase employee engagement, build company culture, and provide a
+                        means of communication for all employees.
+                    </p>
+                </li>
+                <li class="card">
+                    <img src="./src/static/reviewer_1.png" alt="reviewer">
+                    <h6 class="learner_name">Melissa Grote</h6>
+                    <p class="learner_prof">
+                        <span class="learner_country">USA</span> 3life Skills Learner
+                    </p>
+                    <span class="stars">
+                        <img src="./src/static/star.svg" alt="star">
+                        <img src="./src/static/star.svg" alt="star">
+                        <img src="./src/static/star.svg" alt="star">
+                        <img src="./src/static/star.svg" alt="star">
+                        <img src="./src/static/star.svg" alt="star">
+                    </span>
+                    <p class="detail_review">
+                        Communication solutions to increase employee engagement, build company culture, and provide a
+                        means of communication for all employees.
+                    </p>
+                </li>
+            </ul>
         </section>
         <section class="learners-company">
-
+            <h2>Our learners work at</h2>
+            <div class="company_logos flex-center">
+                <img src="./src/static/amazon.svg" alt="" />
+                <img src="./src/static/google.svg" alt="" />
+                <img src="./src/static/meta.svg" alt="" />
+                <img src="./src/static/apple.svg" alt="" />
+                <img src="./src/static/ele_art.svg" alt="" />
+                <img src="./src/static/youtube.svg" alt="" />
+                <img src="./src/static/spotify.svg" alt="" />
+                <img src="./src/static/ibm.svg" alt="" />
+                <img src="./src/static/instagram.svg" alt="" />
+                <img src="./src/static/reddit.svg" alt="" />
+                <img src="./src/static/uber.svg" alt="" />
+                <img src="./src/static/microsoft.svg" alt="" />
+            </div>
         </section>
     </div>
-    <footer>
-        <section class="hero__invitation">
+    <footer class="content-grid">
+        <section class="hero__invitation full-width">
+            <div class="hero__inv_container">
+                <div>
+                    <h3>Join over 10k learners and start learn web development today</h3>
+                    <p>We are constantly taking the next step towards bringing a workplace culture from a real space, to
+                        a
+                        digital one. </p>
+                    <a class="btn" href="#">Start Now</a>
+                </div>
+                <img class="office" src="./src/static/person_at_desk.svg" alt="">
+            </div>
+        </section>
+        <section class="footer__detail full-width">
+            <div class="footer__d_container flex-center">
+                <div class="company__detail">
+                    <img src="./src/static/logo.svg" alt="logo">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                        ut
+                        aliquip ex ea commodo consequat.
+                    </p>
+                </div>
+                <div class="company__links">
+                    <h6>Company</h6>
+                    <ul>
+                        <li><a href="#about_us">About Us</a></li>
+                        <li><a href="#our_team">Our team</a></li>
+                        <li><a href="#support">Support</a></li>
+                        <li><a href="#testimonial">Testimonial</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                    </ul>
+                </div>
+                <div class="resources">
+                    <h6>Resources</h6>
+                    <ul>
+                        <li><a href="#career_services">Career Services</a></li>
+                        <li><a href="#student_success">Student Success</a></li>
+                        <li><a href="#data_analyst">Data Analyst</a></li>
+                        <li><a href="#program_intro">Intro to Programming</a></li>
+                        <li><a href="#digital_marketing">Digital Marketing</a></li>
+                    </ul>
+                </div>
+                <div class="social">
+                    <h6>Follow Social Media</h6>
+                    <span class="social">
+                        <a href="http://facebook.com">
+                            <img src="/src/static/fb_ico.svg" />
+                        </a>
+                        <a href="http://facebook.com">
+                            <img src="/src/static/fb_ico.svg" />
+                        </a>
+                        <a href="http://twitter.com">
+                            <img src="/src/static/twitter.svg" />
+                        </a>
+                        <a href="http://linkedin.com">
+                            <img src="/src/static/linkedin.svg" />
+                        </a>
+                    </span>
+                </div>
+            </div>
 
-        </section>
-        <section class="footer__detail">
-            <div class="company__detail"></div>
-            <div class="company__links"></div>
-            <div class="resources"></div>
-            <div class="social"></div>
-        </section>
-        <section class="toc">
+            </div>
 
+            <div class="toc">
+                <hr class="full-width">
+                <p>All rights reserved &copy; 2023 <a href="#home">3lifeskills.com</a></p>
+            </div>
         </section>
+
     </footer>
 </body>
 
