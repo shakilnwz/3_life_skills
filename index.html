@@ -11,10 +11,22 @@
 </head>
 
 <body>
-    <header class="content-grid">
+    <header class="content-grid full-width">
         <div class="header__layout flex-center">
             <img src="./src/static/logo.svg" alt="logo" class="logo">
+            <span class="nav__bar showNav">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </span>
+
+            <span class="nav__bar hideNav">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </span>
             <nav class="nav flex-center">
+
                 <ul class="nav__menu flex-center">
                     <li><a href="#">Home</a></li>
                     <li><a href="#about">About Us</a></li>
@@ -165,7 +177,7 @@
                     </li>
                 </ul>
                 <div class="curriculum__right-actions flex-center">
-                    <span id="expand_all" class="">Expand All Sections</span>
+                    <span id="expand_all" data-status="false">Expand All Sections</span>
                     <span class="social">
                         <a href="http://facebook.com">
                             <img src="/src/static/fb_ico.svg" />
@@ -181,208 +193,325 @@
 
             </div>
             <div class="daily__lessons">
-                <div class="lesson">
-                    <p class="red">Day 1</p>
-                    <div class="title_expand flex-center">
-                        <h5>
-                            Introduction to Front-End Enginner Career Path
-                        </h5>
-                        <img class="expand-button" src="./src/static/unfold_big.svg" alt="unfold">
-                    </div>
-                    <p>Welcome to the Front-End Enginner Career Path!</p>
+                <!-- lesson 1 first child  -->
+                <details class="lesson">
+                    <summary>
+                        <p class="red">Day 1</p>
+                        <div class="title_expand flex-center">
+                            <h5>
+                                Introduction to Front-End Enginner Career Path
+                            </h5>
+                            <img class="expand-button" src="./src/static/unfold_big.svg" alt="unfold">
+                        </div>
+                        <p>Welcome to the Front-End Enginner Career Path!</p>
+                    </summary>
                     <ul class="lesson__days">
-                        <li class="lesson__task">
-                            <p>
-                                &bull; CoreSkill
-                            </p>
-                            <hr class="innerline">
-                            <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
-                            <ul class="lesson__subtask hidden">
-                                <li>some text</li>
-                            </ul>
+                        <!-- second child -->
+                        <li>
+
+                            <details>
+                                <summary class="lesson__task">
+                                    <p>
+                                        &bull; CoreSkill
+                                    </p>
+                                    <hr class="innerline">
+                                    <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
+                                </summary>
+                                <ul class="lesson__subtask">
+                                    <li>some text</li>
+                                </ul>
+                            </details>
+
                         </li>
-                        <li class="lesson__task">
-                            <p>
-                                &bull; Problem Solving
-                            </p>
-                            <hr class="innerline">
-                            <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
-                            <ul class="lesson__subtask hidden">
-                            </ul>
+                        <!-- // end second child -->
+                        <!-- second child -->
+                        <li>
+
+                            <details>
+                                <summary class="lesson__task">
+                                    <p>
+                                        &bull; Problem Solving
+                                    </p>
+                                    <hr class="innerline">
+                                    <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
+                                </summary>
+                                <ul class="lesson__subtask">
+                                    <li>some text</li>
+                                </ul>
+                            </details>
+
                         </li>
-                        <li class="lesson__task">
-                            <p>
-                                &bull; Communication
-                            </p>
-                            <hr class="innerline">
-                            <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
-                            <ul class="lesson__subtask hidden">
-                            </ul>
+                        <!-- // end second child -->
+                        <!-- second child -->
+                        <li>
+
+                            <details>
+                                <summary class="lesson__task">
+                                    <p>
+                                        &bull; Communicaton
+                                    </p>
+                                    <hr class="innerline">
+                                    <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
+                                </summary>
+                                <ul class="lesson__subtask">
+                                    <li>some text</li>
+                                </ul>
+                            </details>
+
                         </li>
+                        <!-- // end second child -->
                     </ul>
-                    <hr class="innerline">
-                </div>
-                <div class="lesson">
-                    <p class="red">Day 2</p>
-                    <div class="title_expand flex-center">
-                        <h5>
-                            Overview of Web Development
-                        </h5>
-                        <img class="expand-button" src="./src/static/unfold_big.svg" alt="unfold">
-                    </div>
-                    <p>Be introduced to the field of front-end web development.</p>
-                    <ul class="lesson__days hidden">
-                        <li class="lesson__task">
-                            <p>
-                                &bull; CoreSkill
-                            </p>
-                            <hr class="innerline">
-                            <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
-                            <ul class="lesson__subtask hidden">
-                                <li>some text</li>
-                            </ul>
+
+                </details>
+                <!-- // end lesson 1 first child -->
+                <hr class="innerline">
+
+                <!-- lesson 2 first child  -->
+                <details class="lesson">
+                    <summary>
+                        <p class="red">Day 2</p>
+                        <div class="title_expand flex-center">
+                            <h5>
+                                Overview of Web Development
+                            </h5>
+                            <img class="expand-button" src="./src/static/unfold_big.svg" alt="unfold">
+                        </div>
+                        <p>
+                            Be introduced to the field of front-end web development.
+                        </p>
+                    </summary>
+                    <ul class="lesson__days">
+                        <!-- second child -->
+                        <li>
+                            <details>
+                                <summary class="lesson__task">
+                                    <p>
+                                        &bull; CoreSkill
+                                    </p>
+                                    <hr class="innerline">
+                                    <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
+                                </summary>
+                                <ul class="lesson__subtask">
+                                    <li>some text</li>
+                                </ul>
+                            </details>
                         </li>
-                    </ul>
-                    <hr class="innerline">
-                </div>
-                <div class="lesson">
-                    <p class="red">Day 3</p>
-                    <div class="title_expand flex-center">
-                        <h5>
-                            Fundamentals of HTML
-                        </h5>
-                        <img class="expand-button" src="./src/static/unfold_big.svg" alt="unfold">
-                    </div>
-                    <p>Learn to build a structure for a website using HTML.</p>
-                    <ul class="lesson__days hidden">
-                        <li class="lesson__task">
-                            <p>
-                                &bull; CoreSkill
-                            </p>
-                            <hr class="innerline">
-                            <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
-                            <ul class="lesson__subtask hidden">
-                                <li>some text</li>
-                            </ul>
+                        <!-- // end second child -->
+                </details>
+                <!-- // end lesson 2 first child -->
+                <hr class="innerline">
+
+                <!-- lesson 3 first child  -->
+                <details class="lesson">
+                    <summary>
+                        <p class="red">Day 3</p>
+                        <div class="title_expand flex-center">
+                            <h5>
+                                Fundamentals of HTML
+                            </h5>
+                            <img class="expand-button" src="./src/static/unfold_big.svg" alt="unfold">
+                        </div>
+                        <p>
+                            Learn to build a structure for a website using HTML.
+                        </p>
+                    </summary>
+                    <ul class="lesson__days">
+                        <!-- second child -->
+                        <li>
+                            <details>
+                                <summary class="lesson__task">
+                                    <p>
+                                        &bull; CoreSkill
+                                    </p>
+                                    <hr class="innerline">
+                                    <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
+                                </summary>
+                                <ul class="lesson__subtask">
+                                    <li>some text</li>
+                                </ul>
+                            </details>
                         </li>
-                    </ul>
-                    <hr class="innerline">
-                </div>
-                <div class="lesson">
-                    <p class="red">Day 4</p>
-                    <div class="title_expand flex-center">
-                        <h5>
-                            Semantic HTML
-                        </h5>
-                        <img class="expand-button" src="./src/static/unfold_big.svg" alt="unfold">
-                    </div>
-                    <p>Write clearer, more accessible HTML using Semantic HTML tags.</p>
-                    <ul class="lesson__days hidden">
-                        <li class="lesson__task">
-                            <p>
-                                &bull; CoreSkill
-                            </p>
-                            <hr class="innerline">
-                            <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
-                            <ul class="lesson__subtask hidden">
-                                <li>some text</li>
-                            </ul>
+                        <!-- // end second child -->
+                </details>
+                <!-- // end lesson 3 first child -->
+                <hr class="innerline">
+
+                <!-- lesson 4 first child  -->
+                <details class="lesson">
+                    <summary>
+                        <p class="red">Day 4</p>
+                        <div class="title_expand flex-center">
+                            <h5>
+                                Semantic HTML
+                            </h5>
+                            <img class="expand-button" src="./src/static/unfold_big.svg" alt="unfold">
+                        </div>
+                        <p>
+                            Write clearer, more accessible HTML using Semantic HTML tags.
+                        </p>
+                    </summary>
+                    <ul class="lesson__days">
+                        <!-- second child -->
+                        <li>
+                            <details>
+                                <summary class="lesson__task">
+                                    <p>
+                                        &bull; CoreSkill
+                                    </p>
+                                    <hr class="innerline">
+                                    <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
+                                </summary>
+                                <ul class="lesson__subtask">
+                                    <li>some text</li>
+                                </ul>
+                            </details>
                         </li>
-                    </ul>
-                    <hr class="innerline">
-                </div>
-                <div class="lesson">
-                    <p class="red">Day 5</p>
-                    <div class="title_expand flex-center">
-                        <h5>
-                            Developing Websites Locally
-                        </h5>
-                        <img class="expand-button" src="./src/static/unfold_big.svg" alt="unfold">
-                    </div>
-                    <p>Get acquainted with text editors and Chrome DevTools to develop websites locally.</p>
-                    <ul class="lesson__days hidden">
-                        <li class="lesson__task">
-                            <p>
-                                &bull; CoreSkill
-                            </p>
-                            <hr class="innerline">
-                            <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
-                            <ul class="lesson__subtask hidden">
-                                <li>some text</li>
-                            </ul>
+                        <!-- // end second child -->
+                </details>
+                <!-- // end lesson 4 first child -->
+                <hr class="innerline">
+
+
+                <!-- lesson 5 first child  -->
+                <details class="lesson">
+                    <summary>
+                        <p class="red">Day 5</p>
+                        <div class="title_expand flex-center">
+                            <h5>
+                                Developing Websites Locally
+                            </h5>
+                            <img class="expand-button" src="./src/static/unfold_big.svg" alt="unfold">
+                        </div>
+                        <p>
+                            Get acquainted with text editors and Chrome DevTools to develop websites locally.
+                        </p>
+                    </summary>
+                    <ul class="lesson__days">
+                        <!-- second child -->
+                        <li>
+                            <details>
+                                <summary class="lesson__task">
+                                    <p>
+                                        &bull; CoreSkill
+                                    </p>
+                                    <hr class="innerline">
+                                    <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
+                                </summary>
+                                <ul class="lesson__subtask">
+                                    <li>some text</li>
+                                </ul>
+                            </details>
                         </li>
-                    </ul>
-                    <hr class="innerline">
-                </div>
-                <div class="lesson">
-                    <p class="red">Day 6</p>
-                    <div class="title_expand flex-center">
-                        <h5>
-                            Deploying Websites
-                        </h5>
-                        <img class="expand-button" src="./src/static/unfold_big.svg" alt="unfold">
-                    </div>
-                    <p>Learn how to deploy websites using GitHub Pages and the command line.</p>
-                    <ul class="lesson__days hidden">
-                        <li class="lesson__task">
-                            <p>
-                                &bull; CoreSkill
-                            </p>
-                            <hr class="innerline">
-                            <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
-                            <ul class="lesson__subtask hidden">
-                                <li>some text</li>
-                            </ul>
+                        <!-- // end second child -->
+                </details>
+                <!-- // end lesson 5 first child -->
+                <hr class="innerline">
+
+                <!-- lesson 6 first child  -->
+                <details class="lesson">
+                    <summary>
+                        <p class="red">Day 6</p>
+                        <div class="title_expand flex-center">
+                            <h5>
+                                Deploying Websites
+                            </h5>
+                            <img class="expand-button" src="./src/static/unfold_big.svg" alt="unfold">
+                        </div>
+                        <p>
+                            Learn how to deploy websites using GitHub Pages and the command line.
+                        </p>
+                    </summary>
+                    <ul class="lesson__days">
+                        <!-- second child -->
+                        <li>
+                            <details>
+                                <summary class="lesson__task">
+                                    <p>
+                                        &bull; CoreSkill
+                                    </p>
+                                    <hr class="innerline">
+                                    <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
+                                </summary>
+                                <ul class="lesson__subtask">
+                                    <li>some text</li>
+                                </ul>
+                            </details>
                         </li>
-                    </ul>
-                    <hr class="innerline">
-                </div>
-                <div class="lesson">
-                    <p class="red">Day 7</p>
-                    <div class="title_expand flex-center">
-                        <h5>
-                            Improved Styling with CSS
-                        </h5>
-                        <img class="expand-button" src="./src/static/unfold_big.svg" alt="unfold">
-                    </div>
-                    <p>Use intermediate-level CSS to customize styles and implement navigation elements.</p>
-                    <ul class="lesson__days hidden">
-                        <li class="lesson__task">
-                            <p>
-                                &bull; CoreSkill
-                            </p>
-                            <hr class="innerline">
-                            <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
-                            <ul class="lesson__subtask hidden">
-                                <li>some text</li>
-                            </ul>
+                        <!-- // end second child -->
+                </details>
+                <!-- // end lesson 6 first child -->
+                <hr class="innerline">
+
+                <!-- lesson 7 first child  -->
+                <details class="lesson">
+                    <summary>
+                        <p class="red">Day 7</p>
+                        <div class="title_expand flex-center">
+                            <h5>
+                                Improved Styling with CSS
+                            </h5>
+                            <img class="expand-button" src="./src/static/unfold_big.svg" alt="unfold">
+                        </div>
+                        <p>
+                            Use intermediate-level CSS to customize styles and implement navigation elements.
+                        </p>
+                    </summary>
+                    <ul class="lesson__days">
+                        <!-- second child -->
+                        <li>
+                            <details>
+                                <summary class="lesson__task">
+                                    <p>
+                                        &bull; CoreSkill
+                                    </p>
+                                    <hr class="innerline">
+                                    <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
+                                </summary>
+                                <ul class="lesson__subtask">
+                                    <li>some text</li>
+                                </ul>
+                            </details>
                         </li>
-                    </ul>
-                    <hr class="innerline">
-                </div>
-                <div class="lesson">
-                    <p class="red">Day 8</p>
-                    <div class="title_expand flex-center">
-                        <h5>
-                            Fundamentals of Web Design
-                        </h5>
-                        <img class="expand-button" src="./src/static/unfold_big.svg" alt="unfold">
-                    </div>
-                    <p>Explore best user interface (UI) design practices to implement CSS.</p>
-                    <ul class="lesson__days hidden">
-                        <li class="lesson__task">
-                            <p>
-                                &bull; CoreSkill
-                            </p>
-                            <hr class="innerline">
-                            <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
-                            <ul class="lesson__subtask hidden">
-                                <li>some text</li>
-                            </ul>
+                        <!-- // end second child -->
+                </details>
+                <!-- // end lesson 7 first child -->
+                <hr class="innerline">
+
+                <!-- lesson 8 first child  -->
+                <details class="lesson">
+                    <summary>
+                        <p class="red">Day 8</p>
+                        <div class="title_expand flex-center">
+                            <h5>
+                                Fundamentals of Web Design
+                            </h5>
+                            <img class="expand-button" src="./src/static/unfold_big.svg" alt="unfold">
+                        </div>
+                        <p>
+                            Explore best user interface (UI) design practices to implement CSS.
+                        </p>
+                    </summary>
+                    <ul class="lesson__days">
+                        <!-- second child -->
+                        <li>
+                            <details>
+                                <summary class="lesson__task">
+                                    <p>
+                                        &bull; CoreSkill
+                                    </p>
+                                    <hr class="innerline">
+                                    <img class="expand-button" src="./src/static/unfold_small.svg" alt="unfold">
+                                </summary>
+                                <ul class="lesson__subtask">
+                                    <li>some text</li>
+                                </ul>
+                            </details>
                         </li>
-                    </ul>
-                    <hr class="innerline">
-                </div>
+                        <!-- // end second child -->
+                </details>
+                <!-- // end lesson 8 first child -->
+                <hr class="innerline">
+
             </div>
         </section>
         <section class="about__author">

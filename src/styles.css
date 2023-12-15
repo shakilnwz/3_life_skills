@@ -154,9 +154,29 @@ header a {
 
 }
 
+.header__layout {
+    position: relative;
+}
+
+.nav__bar {
+    position: absolute;
+    right: 0;
+    /* display: inline-block; */
+    width: 5rem;
+    border: 1px solid black;
+    z-index: 1;
+}
+
+.bar {
+    margin: .7rem;
+    display: block;
+    height: 4px;
+    background-color: var(--color-font);
+}
+
 .nav,
 .nav__menu {
-    gap: 2rem;
+    gap: clamp(0.3rem, 1vw, 2rem);
     position: relative;
 }
 
@@ -273,7 +293,7 @@ section {
 
 .skill-req {
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: clamp(0.3rem, 1vw, 2rem);
     justify-content: space-around;
     background-color: var(--color-font-white);
     color: var(--color-font);
@@ -284,7 +304,7 @@ section {
 
 .skill-req li {
     padding: 2rem 0;
-    gap: 1.8rem;
+    gap: clamp(0.2rem, 1vw, 2rem);
     flex-wrap: nowrap;
 }
 
@@ -298,8 +318,12 @@ section {
 } */
 
 .about-course {
-    gap: 2rem;
+    /* justify-content: center; */
+    /* flex-wrap: wrap; */
+    gap: clamp(0.3rem, 1vw, 2rem);
 }
+
+
 
 a,
 .red {
@@ -333,11 +357,20 @@ a,
     padding-top: 2rem;
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: clamp(0.3rem, 1vw, 2rem);
 }
 
 .course_detail {
+    flex-wrap: wrap;
     padding: 2rem 0 3rem;
+}
+
+#expand_all {
+    cursor: pointer;
+}
+
+.course_detail__summary {
+    flex-wrap: wrap;
 }
 
 .course_detail__summary li {
@@ -378,6 +411,15 @@ a,
     background-position: right bottom;
     line-height: 4.2rem;
 
+}
+
+details>summary {
+    list-style: none;
+    cursor: pointer;
+}
+
+details[open]>summary .expand-button {
+    transform: rotate(180deg);
 }
 
 .lesson {
@@ -480,6 +522,7 @@ footer h3 {
 
 .hero__invitation {
     background-image: url(./static/hero_bg.svg);
+    background-position: -50%;
 }
 
 .hero__inv_container {
@@ -508,7 +551,7 @@ footer h3 {
 }
 
 .footer__d_container {
-
+    flex-wrap: wrap;
     padding-top: 10rem;
     align-items: flex-start;
 }
@@ -546,3 +589,17 @@ footer h3 {
 .toc>p {
     padding: 1.5rem 0;
 }
+
+@media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}
