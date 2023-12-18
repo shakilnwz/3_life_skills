@@ -6,62 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3 Life Skills</title>
     <link rel="shortcut icon" href="./src/static/logo.svg" type="image/x-icon">
-    <link rel="stylesheet" href="/src/styles.css">
-    <script src="/src/scripts.js" defer></script>
+    <link rel="stylesheet" href="./src/styles.css">
+    <script src="./src/scripts.js" defer></script>
 </head>
 
 <body>
     <header class="content-grid full-width">
         <div class="header__layout flex-center">
             <img src="./src/static/logo.svg" alt="logo" class="logo">
-            <span class="nav__bar showNav">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </span>
 
-            <span class="nav__bar hideNav">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </span>
             <nav class="nav flex-center">
 
                 <ul class="nav__menu flex-center">
                     <li><a href="#">Home</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#team">Team</a></li>
-                    <li><a href="#coaching">Coaching <img src="./src/static/triangle_white.svg" alt="unfold">
+                    <li>
+                        <a href="#coaching">Coaching <img src="./src/static/triangle_white.svg" alt="unfold">
                             <ul class="nav__submenu">
                                 <li>item</li>
                                 <li>item</li>
                                 <li>item</li>
                             </ul>
-                        </a></li>
+                        </a>
+                    </li>
                     <li><a href="#contact">Contact</a>
                     </li>
                     <li><a href="#faq">FAQ</a></li>
+                    <li id="menu_cta"><a class="btn" href="#">Get Started</a></li>
                 </ul>
-                <span id="profile" href="#profile">
-                    <img src="./src/static/profile_ico.svg" alt="profile">
-                    <div id="profile__card" class="flex-center">
-                        <svg viewBox="0 0 24 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 14.9753 22.9172 17.6978 21.1241 19.7947C19.4075 17.0871 16.1343 15.2576 12.3788 15.2576C8.39332 15.2576 4.95114 17.318 3.33622 20.303C1.26978 18.1473 0 15.2219 0 12ZM15.529 10.3894C15.529 8.33569 13.86 6.66667 11.8063 6.66667C9.75259 6.66667 8.08357 8.33569 8.08357 10.3894C8.08357 12.4431 9.75259 14.1121 11.8063 14.1121C13.86 14.1121 15.529 12.4431 15.529 10.3894Z"
-                                fill="var(--color-hero-bg)" />
-                        </svg>
-                        <p>John Doe</p>
+                <div id="profile_block">
+                    <span id="profile" href="#profile">
+                        <img src="./src/static/profile_ico.svg" alt="profile">
+                        <div id="profile__card" class="flex-center">
+                            <svg viewBox="0 0 24 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 14.9753 22.9172 17.6978 21.1241 19.7947C19.4075 17.0871 16.1343 15.2576 12.3788 15.2576C8.39332 15.2576 4.95114 17.318 3.33622 20.303C1.26978 18.1473 0 15.2219 0 12ZM15.529 10.3894C15.529 8.33569 13.86 6.66667 11.8063 6.66667C9.75259 6.66667 8.08357 8.33569 8.08357 10.3894C8.08357 12.4431 9.75259 14.1121 11.8063 14.1121C13.86 14.1121 15.529 12.4431 15.529 10.3894Z"
+                                    fill="var(--color-hero-bg)" />
+                            </svg>
+                            <p>John Doe</p>
 
-                        <a class="btn" href="#profile_page">View Profile</a>
-                    </div>
+                            <a class="btn" href="#profile_page">View Profile</a>
+                        </div>
+                    </span>
+                </div>
+                <a id="nav_cta" class="btn" href="#">Get Started</a>
+                <span class="nav__bar" data-visibility="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
                 </span>
-                <a class="btn" href="#">Get Started</a>
             </nav>
         </div>
         <section class="hero">
             <div class="pagenav">
-                <a href="#home">Home</a> - <a href="#course">Course</a> - <a href="#webdev">Web Development</a> - <a
-                    href="#singlecourse">Single Course</a>
+                <a href="#home">Home</a><span> - </span>
+                <a href="#course">Course</a><span> - </span>
+                <a href="#webdev">Web Development</a><span> - </span>
+                <a href="#singlecourse">Single Course</a>
             </div>
             <h1>Complete Web Development Course</h1>
             <h4>By Musab Abdullah</h4>
@@ -73,14 +75,14 @@
             <div class="rating__summary flex-center">
                 <span class="rating__sum">4.7</span>
                 <div>
-                    <img src="/src/static/star.svg" alt="star">
-                    <img src="/src/static/star.svg" alt="star">
-                    <img src="/src/static/star.svg" alt="star">
-                    <img src="/src/static/star.svg" alt="star">
-                    <img src="/src/static/star.svg" alt="star">
+                    <img src="./src/static/star.svg" alt="star">
+                    <img src="./src/static/star.svg" alt="star">
+                    <img src="./src/static/star.svg" alt="star">
+                    <img src="./src/static/star.svg" alt="star">
+                    <img src="./src/static/star.svg" alt="star">
                 </div>
                 <span class="total_rated">2,696 Ratings</span>
-                <img src="./src/static/paperplane.svg" alt="flying paperplane">
+                <img id="paperplane" src="./src/static/paperplane.svg" alt="flying paperplane">
             </div>
             <a href="#" class="hero__start btn">Start Now</a>
             <span class="total_enrolled">3,567 Larners Enrolled</span>
@@ -140,14 +142,17 @@
                         <img src="./src/static/checkbox_violet.svg" alt="checkbox">
                         <p>Work with web development</p>
                     </li>
+
                     <li>
                         <img src="./src/static/checkbox_red.svg" alt="checkbox">
                         <p>Create queries for tables</p>
                     </li>
+
                     <li>
                         <img src="./src/static/checkbox_blue.svg" alt="checkbox">
                         <p>Build web developments projects</p>
                     </li>
+
                     <li>
                         <img src="./src/static/checkbox_green.svg" alt="checkbox">
                         <p>Web problem solving</p>
@@ -177,18 +182,18 @@
                     </li>
                 </ul>
                 <div class="curriculum__right-actions flex-center">
-                    <span id="expand_all" data-status="false">Expand All Sections</span>
-                    <span class="social">
+                    <div id="expand_all" data-status="false">Expand All Sections</div>
+                    <div class="social">
                         <a href="http://facebook.com">
-                            <img src="/src/static/fb_ico.svg" />
+                            <img src="./src/static/fb_ico.svg" />
                         </a>
                         <a href="http://twitter.com">
-                            <img src="/src/static/twitter.svg" />
+                            <img src="./src/static/twitter.svg" />
                         </a>
                         <a href="http://linkedin.com">
-                            <img src="/src/static/linkedin.svg" />
+                            <img src="./src/static/linkedin.svg" />
                         </a>
-                    </span>
+                    </div>
                 </div>
 
             </div>
@@ -224,6 +229,7 @@
 
                         </li>
                         <!-- // end second child -->
+
                         <!-- second child -->
                         <li>
 
@@ -280,7 +286,9 @@
                             Be introduced to the field of front-end web development.
                         </p>
                     </summary>
+
                     <ul class="lesson__days">
+
                         <!-- second child -->
                         <li>
                             <details>
@@ -297,6 +305,7 @@
                             </details>
                         </li>
                         <!-- // end second child -->
+
                 </details>
                 <!-- // end lesson 2 first child -->
                 <hr class="innerline">
@@ -548,7 +557,6 @@
                         <img src="./src/static/star.svg" alt="star">
                         <img src="./src/static/star.svg" alt="star">
                         <img src="./src/static/star.svg" alt="star">
-
                     </span>
                     <p class="detail_review">
                         Communication solutions to increase employee engagement, build company culture, and provide a
@@ -656,22 +664,22 @@
                         <li><a href="#digital_marketing">Digital Marketing</a></li>
                     </ul>
                 </div>
-                <div class="social">
+                <div>
                     <h6>Follow Social Media</h6>
-                    <span class="social">
+                    <div class="social">
                         <a href="http://facebook.com">
-                            <img src="/src/static/fb_ico.svg" />
+                            <img src="./src/static/fb_ico.svg" />
                         </a>
                         <a href="http://facebook.com">
-                            <img src="/src/static/fb_ico.svg" />
+                            <img src="./src/static/fb_ico.svg" />
                         </a>
                         <a href="http://twitter.com">
-                            <img src="/src/static/twitter.svg" />
+                            <img src="./src/static/twitter.svg" />
                         </a>
                         <a href="http://linkedin.com">
-                            <img src="/src/static/linkedin.svg" />
+                            <img src="./src/static/linkedin.svg" />
                         </a>
-                    </span>
+                    </div>
                 </div>
             </div>
 

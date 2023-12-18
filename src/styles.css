@@ -5,6 +5,7 @@
 *::before {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     /* custom props */
     /* fonts*/
     --font-main: 'Inter', sans-serif;
@@ -35,6 +36,7 @@
     --color-font-sec: #435866;
     --color-font-footer: #7B8290;
     --color-font-white: #ffffff;
+    --color-footer-bg: #1E2431;
 }
 
 html {
@@ -42,7 +44,7 @@ html {
 }
 
 body {
-    box-sizing: border-box;
+
     font-size: var(--fs-p-reg);
     line-height: 2.6rem;
     font-family: var(--font-main);
@@ -92,7 +94,8 @@ p {
 
 header {
     background-image: url(./static/hero_bg.svg);
-    background-position: center top;
+    width: 100%;
+    background-position: top center;
     background-repeat: no-repeat;
     padding: 1.7rem 0 5rem 0;
     color: var(--color-font-white);
@@ -101,10 +104,12 @@ header {
 
 
 .btn {
+    /* height: 3.8rem; */
+    display: inline-block;
     font-family: var(--font-btn);
     background-color: var(--color-btn);
     color: var(--color-font-white);
-    padding: 1rem 2rem;
+    padding: 0.5rem 2rem;
     border: 1px solid var(--color-btn-border);
     border-radius: 5rem;
 }
@@ -151,39 +156,24 @@ header a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
+/* 
 .header__layout {
     position: relative;
-}
+} */
 
-.nav__bar {
-    position: absolute;
-    right: 0;
-    /* display: inline-block; */
-    width: 5rem;
-    border: 1px solid black;
-    z-index: 1;
-}
-
-.bar {
-    margin: .7rem;
-    display: block;
-    height: 4px;
-    background-color: var(--color-font);
-}
 
 .nav,
 .nav__menu {
     gap: clamp(0.3rem, 1vw, 2rem);
     position: relative;
+    transition: all 0.3s ease-in-out;
 }
 
 .nav__menu>li {
     padding: 1rem;
     border-bottom: 4px solid transparent;
-
 }
 
 .nav__menu>li:hover {
@@ -191,6 +181,7 @@ header a {
 }
 
 .nav__submenu {
+    text-align: center;
     visibility: hidden;
     top: 4.5rem;
     left: calc(50% - 1rem);
@@ -211,8 +202,7 @@ header a {
     padding: 1rem 3rem;
     border: 4px solid transparent;
     border-radius: 1rem;
-    transition: border 0.3s ease-in-out;
-
+    transition: all 0.3s ease-in-out;
 }
 
 .nav__submenu>li:hover {
@@ -259,12 +249,20 @@ header a {
     height: 7rem;
 }
 
+#menu_cta {
+    display: none;
+}
+
+#nav_cta {
+    display: initial;
+}
+
 section {
-    padding: 5rem 0;
+    padding-block: clamp(2rem, 5%, 5rem);
 }
 
 .hero {
-    padding: 10rem 0;
+    padding-block: clamp(4rem, 10%, 10rem);
 
 }
 
@@ -284,11 +282,11 @@ section {
 }
 
 .hero__start {
-    padding: 1rem 4rem;
+    padding-inline: clamp(2rem, 5vw, 4rem);
 }
 
 .total_enrolled {
-    padding: 0 2rem;
+    padding-inline: clamp(0.5rem, 2%, 5rem);
 }
 
 .skill-req {
@@ -304,7 +302,7 @@ section {
 
 .skill-req li {
     padding: 2rem 0;
-    gap: clamp(0.2rem, 1vw, 2rem);
+    gap: 1rem;
     flex-wrap: nowrap;
 }
 
@@ -357,7 +355,7 @@ a,
     padding-top: 2rem;
     display: flex;
     align-items: center;
-    gap: clamp(0.3rem, 1vw, 2rem);
+    gap: clamp(1rem, 1vw, 2rem);
 }
 
 .course_detail {
@@ -369,9 +367,6 @@ a,
     cursor: pointer;
 }
 
-.course_detail__summary {
-    flex-wrap: wrap;
-}
 
 .course_detail__summary li {
     padding-right: 3rem;
@@ -383,13 +378,20 @@ a,
     gap: 1rem;
 }
 
+.social {
+    display: inline-flex;
+    vertical-align: center;
+    gap: 0.5rem;
+}
+
 .social a {
-    display: inline-block;
+
     padding: .7rem;
     border: 1px solid var(--color-btn);
     border-radius: 50%;
-    width: 1.5rem;
+    width: 3.5rem;
     aspect-ratio: 1;
+
 }
 
 .social a:hover {
@@ -468,20 +470,29 @@ details[open]>summary .expand-button {
     background-color: var(--color-light-bg);
 }
 
+
 .review>p {
     padding: 2rem 0 4rem 0;
 }
 
 .review__cards {
+    position: relative;
     gap: 2rem;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
 }
+
 
 .card {
     padding: 3rem;
-    max-width: 36rem;
+    width: clamp(min(36rem, 33%, 100%), 100%, 36rem);
     background-color: var(--color-font-white);
-
     border-radius: 1rem;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto;
+    scroll-snap-align: center;
+
 }
 
 .card>* {
@@ -521,11 +532,23 @@ footer h3 {
 }
 
 .hero__invitation {
+    position: relative;
+}
+
+.hero__invitation::after {
+    --bottom-cover: 25rem;
+    content: '';
     background-image: url(./static/hero_bg.svg);
-    background-position: -50%;
+    background-position: top center;
+    width: 100%;
+    height: calc(100% + var(--bottom-cover));
+    position: absolute;
+    bottom: - var(--bottom-cover);
+    z-index: -1;
 }
 
 .hero__inv_container {
+    gap: 1rem;
     display: flex;
 }
 
@@ -547,6 +570,9 @@ footer h3 {
 
 .footer__detail {
     background-image: url(./static/footer_bg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
     padding-bottom: 0;
 }
 
@@ -590,16 +616,298 @@ footer h3 {
     padding: 1.5rem 0;
 }
 
-@media only screen and (max-width: 600px) {}
+.nav__bar {
+    display: none;
+}
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {}
 
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {}
 
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {}
+@media (max-width: 768px) {
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {}
+    *,
+    *::after,
+    *::before {
+        /* custom props */
+
+        /* font sizes */
+        --fs-h1: 3rem;
+        --fs-h2: 2.6rem;
+        --fs-h3: 2.4rem;
+        --fs-h4: 2.2rem;
+        --fs-h5: 2rem;
+        --fs-h6: 1.8rem;
+
+        --fs-p-reg: 1.6rem;
+
+    }
+
+    .logo {
+        height: 4rem;
+    }
+
+    .header__layout {
+        flex-direction: row !important;
+    }
+
+    .nav__menu {
+        visibility: hidden;
+        flex-direction: column;
+        position: absolute;
+        background-color: var(--color-light-bg);
+        top: 5rem;
+        right: -2rem;
+        /* from the content grid padding inline*/
+        width: 60vw;
+        align-items: flex-start;
+        padding: 2rem;
+        box-shadow: -1px 1px 10px 5px var(--color-font-sec);
+        border-radius: 2rem 0 0 2rem;
+    }
+
+
+    .nav,
+    .nav__menu {
+        gap: 0.3rem;
+    }
+
+    .nav__menu * {
+        color: var(--color-font);
+    }
+
+    .nav__menu>* {
+        width: 100%;
+    }
+
+    .nav__submenu {
+        display: none;
+        top: 0;
+        left: 0;
+        position: relative;
+        background-color: var(--color-light-bg);
+        padding: 0;
+        z-index: 9;
+        transition: all 0.5s ease-in-out;
+        box-shadow: none;
+    }
+
+    .nav__menu>li:hover .nav__submenu {
+        display: initial;
+    }
+
+    .nav__submenu>li {
+        width: 60%;
+        padding: 0.5rem;
+
+    }
+
+    .nav__submenu>li:hover {
+        border-color: var(--color-hero-bg);
+    }
+
+    #nav_cta {
+        display: none;
+    }
+
+    #menu_cta {
+        display: initial;
+
+    }
+
+    #menu_cta:hover {
+        border-color: transparent;
+    }
+
+    #profile__card {
+        top: 4rem;
+        left: -20rem;
+        height: 20rem;
+    }
+
+    .nav__bar {
+        display: initial;
+        width: 5rem;
+        height: 4rem;
+        cursor: pointer;
+        z-index: 99;
+
+    }
+
+    .nav__bar[data-visibility="false"]>.bar:nth-child(2) {
+        width: 2rem;
+    }
+
+    .bar {
+        margin: .7rem;
+        display: block;
+        height: 4px;
+        background-color: var(--color-font);
+        border-radius: 0.5rem;
+
+    }
+
+    .flex-center {
+        flex-wrap: wrap;
+    }
+
+    .skill-req {
+        justify-self: center;
+        width: fit-content;
+        flex-direction: column;
+        align-content: center;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 2rem clamp(2rem, 6%, 10rem);
+    }
+
+    .skill-req li {
+        padding: 0.5rem 0;
+    }
+
+    a {
+        padding-block: 2rem;
+        font-weight: var(--fw-semibold);
+    }
+
+    .about-course {
+        justify-content: center;
+    }
+
+    .course_detail__summary {
+        flex-wrap: wrap;
+        padding-bottom: 1rem;
+    }
+
+    .curriculum__right-actions {
+        gap: 4rem;
+    }
+
+    .daily__lessons {
+        padding: 3rem;
+        line-height: 3rem;
+    }
+
+    .lesson__days {
+        padding-block: 2rem;
+    }
+
+    .title_expand {
+        flex-wrap: nowrap;
+        gap: 1rem;
+    }
+
+    .review__cards {
+        width: 100%;
+        flex-wrap: nowrap;
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: auto;
+    }
+
+    /* .card {
+        width: clamp(36rem, 90vw, 100%);
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: auto;
+    } */
+
+
+    .office {
+        display: none;
+    }
+
+
+    .footer__d_container {
+        flex-wrap: wrap;
+        padding-top: 3rem;
+        gap: 3rem;
+    }
+
+    .footer__d_container h6,
+    .company__detail>img {
+        padding-bottom: 1.5rem;
+    }
+}
+
+@media (max-width:480px) {
+
+    *,
+    *::after,
+    *::before {
+        /* custom props */
+
+        /* font sizes */
+        --fs-h1: 2.8rem;
+        --fs-h2: 2.6rem;
+        --fs-h3: 2.4rem;
+        --fs-h4: 2.2rem;
+        --fs-h5: 1.8rem;
+        --fs-h6: 1.8rem;
+        --fs-p-reg: 1.6rem;
+    }
+
+    /* hide first 4 item of breadcrumb */
+    .pagenav *:nth-child(-n+4) {
+        display: none;
+    }
+
+    #profile__card {
+        position: fixed;
+        top: 6rem;
+        left: calc(50% - 45vw);
+        width: 90vw;
+        height: 25rem;
+    }
+
+    #paperplane {
+        display: none;
+    }
+
+    .rating__summary {
+        justify-content: center;
+
+    }
+
+    .hero {
+        text-align: center;
+    }
+
+    .hero__start {
+        padding: 1.5rem 4rem;
+        font-weight: var(--fw-semibold);
+    }
+
+    .total_enrolled {
+        padding-top: 2rem;
+        display: block;
+    }
+
+    .skill {
+        padding: clamp(1.5rem, 1vw, 2rem);
+    }
+
+    .course_detail__summary {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .curriculum__right-actions {
+        gap: 2rem;
+    }
+
+    .daily__lessons {
+        padding: 2rem;
+        line-height: 3rem;
+    }
+
+    .footer__d_container {
+        flex-direction: column;
+        padding-top: 3rem;
+        gap: 3rem;
+    }
+
+    .footer__d_container h6,
+    .company__detail>img {
+        padding-bottom: 1rem;
+    }
+
+}
