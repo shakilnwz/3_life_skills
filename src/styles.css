@@ -101,7 +101,25 @@ header {
     color: var(--color-font-white);
 }
 
+header::after,
+header::before {
+    position: relative;
+    content: '';
+    background: url(./static/squaredots_white.svg);
+    background-repeat: no-repeat;
+    z-index: 0;
+    overflow: hidden;
+}
 
+header::after {
+    top: -10rem;
+    right: 6rem;
+}
+
+header::before {
+    top: 0rem;
+    left: 0rem;
+}
 
 .btn {
     /* height: 3.8rem; */
@@ -169,6 +187,7 @@ header a {
     gap: clamp(0.3rem, 1vw, 2rem);
     position: relative;
     transition: all 0.3s ease-in-out;
+    z-index: 1;
 }
 
 .nav__menu>li {
@@ -263,7 +282,6 @@ section {
 
 .hero {
     padding-block: clamp(4rem, 10%, 10rem);
-
 }
 
 .hero>h4 {
@@ -290,6 +308,7 @@ section {
 }
 
 .skill-req {
+    position: relative;
     flex-wrap: wrap;
     gap: clamp(0.3rem, 1vw, 2rem);
     justify-content: space-around;
@@ -298,6 +317,7 @@ section {
     padding: 2rem 0 1.5rem 0;
     border-radius: 1rem;
     box-shadow: 0px 0.5px 20px 2px var(--color-font-sec);
+    z-index: 1;
 }
 
 .skill-req li {
@@ -448,6 +468,8 @@ details[open]>summary .expand-button {
     border-bottom: 1px solid #C4E2F1;
 }
 
+/* have to check infile */
+
 .hidden {
     display: none;
 }
@@ -465,27 +487,90 @@ details[open]>summary .expand-button {
 }
 
 .review {
+    position: relative;
     padding: 10rem 0;
     text-align: center;
     background-color: var(--color-light-bg);
 }
 
+.review_slides {
+    position: relative;
+    /* width: 100%; */
+}
+
+/* .review_slides::after,
+.review_slides::before {
+
+    width: 14rem;
+    aspect-ratio: 1;
+    position: relative;
+    content: '';
+    background: url(./static/squaredots_gradient.svg);
+    background-repeat: no-repeat;
+}
+
+.review_slides::before {
+    bottom: -6rem;
+    left: -6rem;
+}
+
+.review_slides::after {
+    top: -6rem;
+    right: -7rem;
+    z-index: 0;
+} */
+
+.scroller {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 6rem;
+    aspect-ratio: 1;
+    line-height: 0;
+    position: absolute;
+    border: 1px solid var(--color-btn-border);
+    background-color: var(--color-font-white);
+    top: calc(55% - 1.5rem);
+    z-index: 99;
+    opacity: 0.1;
+    transition: all 0.3s ease;
+}
+
+.scroller.left {
+    left: -6;
+}
+
+.scroller.right {
+    right: 0;
+}
+
+.scroller:hover {
+    opacity: 1;
+    background-color: var(--color-btn);
+}
 
 .review>p {
     padding: 2rem 0 4rem 0;
 }
 
+.review_slides {
+    overflow-x: hidden;
+}
+
 .review__cards {
+    /* width: max-content; */
     position: relative;
     gap: 2rem;
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
     scroll-snap-type: x mandatory;
+    z-index: 1;
 }
 
 
 .card {
     padding: 3rem;
-    width: clamp(min(36rem, 33%, 100%), 100%, 36rem);
+    width: calc((100% / 3) - 2rem);
     background-color: var(--color-font-white);
     border-radius: 1rem;
     flex-grow: 1;
@@ -795,26 +880,32 @@ footer h3 {
         gap: 1rem;
     }
 
+    .scroller {
+
+        width: 6rem;
+        aspect-ratio: 1;
+        top: 87%;
+
+    }
+
     .review__cards {
-        width: 100%;
+        /* width: 100%; */
         flex-wrap: nowrap;
         flex-grow: 0;
         flex-shrink: 0;
         flex-basis: auto;
     }
 
-    /* .card {
-        width: clamp(36rem, 90vw, 100%);
+    .card {
+        width: calc((100% / 2) - 1rem);
         flex-grow: 1;
         flex-shrink: 0;
         flex-basis: auto;
-    } */
-
+    }
 
     .office {
         display: none;
     }
-
 
     .footer__d_container {
         flex-wrap: wrap;
@@ -897,6 +988,10 @@ footer h3 {
     .daily__lessons {
         padding: 2rem;
         line-height: 3rem;
+    }
+
+    .card {
+        width: 100%;
     }
 
     .footer__d_container {

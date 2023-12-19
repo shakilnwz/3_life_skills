@@ -11,11 +11,8 @@ threeDot.addEventListener('click', (e) => {
     } else if (e.target.dataset.visibility === 'true') {
         navMenu.style.visibility = 'hidden'
         // navMenu.style.width = '0vw'
-
-
         e.target.dataset.visibility = 'false'
     }
-
 })
 // window.addEventListener('resize', () => {
 //     location.reload()
@@ -40,4 +37,21 @@ expandAll.addEventListener('click', (e) => {
         e.target.dataset.status = 'false'
         e.target.innerText = 'Expand All Sections'
     }
+})
+
+//auto carousel
+const reviewSlides = document.querySelector('.review_slides')
+const reviewCards = document.querySelector('.review__cards')
+let cards = document.querySelectorAll('.card')
+let cardWidth = cards[0].getBoundingClientRect().width
+let gap = reviewCards
+const leftItem = document.querySelector('.scroller.left')
+const rightItem = document.querySelector('.scroller.right')
+
+rightItem.addEventListener('click', (e) => {
+    console.log(cardWidth)
+    console.log(reviewCards)
+
+    reviewCards.style.left = `-${cardWidth + 20}px`
+    //getting some extra width of 15, 7.5 in the smaller screen
 })
