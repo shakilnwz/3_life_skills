@@ -5,11 +5,13 @@ const navMenu = document.querySelector('.nav__menu')
 threeDot.addEventListener('click', (e) => {
     console.log(e)
     if (e.target.dataset.visibility === 'false') {
-        navMenu.style.visibility = 'initial'
+        navMenu.classList.remove('hidden')
         e.target.dataset.visibility = 'true'
+        e.target.innerHTML = '&times;'
     } else if (e.target.dataset.visibility === 'true') {
-        navMenu.style.visibility = 'hidden'
+        navMenu.classList.add('hidden')
         e.target.dataset.visibility = 'false'
+        e.target.innerHTML = '&#9776;'
     }
 })
 

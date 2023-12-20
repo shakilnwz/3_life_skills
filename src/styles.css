@@ -175,14 +175,19 @@ header a {
     align-items: center;
 }
 
-
-.nav,
-.nav__menu {
+.nav {
     gap: clamp(0.3rem, 1vw, 2rem);
     position: relative;
     transition: all 0.3s ease-in-out;
     z-index: 1;
 }
+
+.nav__menu {
+    gap: clamp(0.3rem, 1vw, 2rem);
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
 
 .nav__menu>li {
     padding: 1rem;
@@ -202,7 +207,7 @@ header a {
     background-color: var(--color-btn);
     padding: 1rem;
     border-radius: 1rem;
-    z-index: 9;
+    z-index: 99;
     transition: all 0.5s ease-in-out;
     box-shadow: -1px 1px 10px 5px var(--color-font-sec);
 }
@@ -324,11 +329,9 @@ section {
     color: var(--color-font-sec);
 }
 
-
 .about-course {
     gap: clamp(0.3rem, 1vw, 2rem);
 }
-
 
 a,
 .red {
@@ -374,7 +377,6 @@ a,
     cursor: pointer;
 }
 
-
 .course_detail__summary li {
     padding-right: 3rem;
     display: flex;
@@ -392,13 +394,11 @@ a,
 }
 
 .social a {
-
     padding: .7rem;
     border: 1px solid var(--color-btn);
     border-radius: 50%;
     width: 3.5rem;
     aspect-ratio: 1;
-
 }
 
 .social a:hover {
@@ -419,7 +419,6 @@ a,
     background-repeat: no-repeat;
     background-position: right bottom;
     line-height: 4.2rem;
-
 }
 
 details>summary {
@@ -455,9 +454,6 @@ details[open]>summary .expand-button {
     border-bottom: 1px solid #C4E2F1;
 }
 
-/* have to check infile */
-
-
 .about__author>p {
     max-width: 90rem;
     padding: 1.5rem 0;
@@ -478,32 +474,30 @@ details[open]>summary .expand-button {
 }
 
 .review_slides {
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
-
 /* for bg dots */
-/* .review_slides::after,
+.review_slides::after,
 .review_slides::before {
-
     width: 14rem;
     aspect-ratio: 1;
-    position: relative;
+    position: absolute;
     content: '';
     background: url(./static/squaredots_gradient.svg);
     background-repeat: no-repeat;
 }
 
 .review_slides::before {
-    bottom: -6rem;
-    left: -6rem;
+    bottom: 5%;
+    left: 17%;
 }
 
 .review_slides::after {
-    top: -6rem;
-    right: -7rem;
+    top: 25%;
+    right: 15%;
     z-index: 0;
-} */
+}
 
 .scroller {
     display: inline-flex;
@@ -540,7 +534,6 @@ details[open]>summary .expand-button {
     padding: 2rem 0 4rem 0;
 }
 
-
 .review__cards {
     /* carousel review card section */
     --card-inview: 3;
@@ -553,7 +546,6 @@ details[open]>summary .expand-button {
     z-index: 1;
     transition: all 0.3s linear;
 }
-
 
 .card {
     padding: 3rem;
@@ -646,6 +638,10 @@ footer h3 {
     padding-bottom: 0;
 }
 
+.footer__detail .social a {
+    border: none !important;
+}
+
 .footer__d_container {
     flex-wrap: wrap;
     padding-top: 10rem;
@@ -689,8 +685,6 @@ footer h3 {
     display: none;
 }
 
-
-
 @media (max-width: 768px) {
 
     *,
@@ -722,7 +716,6 @@ footer h3 {
     }
 
     .nav__menu {
-        visibility: hidden;
         flex-direction: column;
         position: absolute;
         background-color: var(--color-light-bg);
@@ -734,6 +727,12 @@ footer h3 {
         padding: 2rem;
         box-shadow: -1px 1px 10px 5px var(--color-font-sec);
         border-radius: 2rem 0 0 2rem;
+    }
+
+    .hidden {
+        position: fixed;
+        top: 7rem;
+        right: -100vw;
     }
 
     .nav__menu * {
@@ -788,23 +787,16 @@ footer h3 {
     }
 
     .nav__bar {
-        display: initial;
-        width: 5rem;
-        height: 4rem;
+        font-size: 4rem;
+        position: relative;
+        display: block;
+        padding: 1rem;
+        width: 6rem;
         cursor: pointer;
         z-index: 99;
-    }
-
-    .nav__bar[data-visibility="false"]>.bar:nth-child(2) {
-        width: 2rem;
-    }
-
-    .bar {
-        margin: .7rem;
-        display: block;
-        height: 4px;
-        background-color: var(--color-font);
-        border-radius: 0.5rem;
+        user-select: none;
+        border-radius: .5rem;
+        text-align: center;
     }
 
     .flex-center {
@@ -871,6 +863,11 @@ footer h3 {
         flex-wrap: nowrap;
     }
 
+    .review_slides::after,
+    .review_slides::before {
+        display: none;
+    }
+
     .office {
         display: none;
     }
@@ -878,7 +875,7 @@ footer h3 {
     .footer__d_container {
         flex-wrap: wrap;
         padding-top: 3rem;
-        gap: 3rem;
+        gap: 2rem;
     }
 
     .footer__d_container h6,
