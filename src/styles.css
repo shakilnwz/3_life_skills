@@ -37,6 +37,8 @@
     --color-font-footer: #7B8290;
     --color-font-white: #ffffff;
     --color-footer-bg: #1E2431;
+
+
 }
 
 html {
@@ -44,7 +46,6 @@ html {
 }
 
 body {
-
     font-size: var(--fs-p-reg);
     line-height: 2.6rem;
     font-family: var(--font-main);
@@ -122,7 +123,6 @@ header::before {
 }
 
 .btn {
-    /* height: 3.8rem; */
     display: inline-block;
     font-family: var(--font-btn);
     background-color: var(--color-btn);
@@ -147,7 +147,6 @@ header a {
     text-decoration: none;
     padding: 2rem 0;
 }
-
 
 .content-grid {
     --padding-inline: 2rem;
@@ -175,11 +174,6 @@ header a {
     justify-content: space-between;
     align-items: center;
 }
-
-/* 
-.header__layout {
-    position: relative;
-} */
 
 
 .nav,
@@ -330,17 +324,10 @@ section {
     color: var(--color-font-sec);
 }
 
-/* .skill-req .med {
-    font-weight: var(--fw-semibold);
-    color: var(--color-font);
-} */
 
 .about-course {
-    /* justify-content: center; */
-    /* flex-wrap: wrap; */
     gap: clamp(0.3rem, 1vw, 2rem);
 }
-
 
 
 a,
@@ -470,9 +457,6 @@ details[open]>summary .expand-button {
 
 /* have to check infile */
 
-.hidden {
-    display: none;
-}
 
 .about__author>p {
     max-width: 90rem;
@@ -494,10 +478,11 @@ details[open]>summary .expand-button {
 }
 
 .review_slides {
-    position: relative;
-    /* width: 100%; */
+    overflow-x: hidden;
 }
 
+
+/* for bg dots */
 /* .review_slides::after,
 .review_slides::before {
 
@@ -535,6 +520,7 @@ details[open]>summary .expand-button {
     z-index: 99;
     opacity: 0.1;
     transition: all 0.3s ease;
+    user-select: none;
 }
 
 .scroller.left {
@@ -554,30 +540,30 @@ details[open]>summary .expand-button {
     padding: 2rem 0 4rem 0;
 }
 
-.review_slides {
-    overflow-x: hidden;
-}
 
 .review__cards {
-    /* width: max-content; */
+    /* carousel review card section */
+    --card-inview: 3;
+    --card-gapbetween: 2rem;
+    --card-width: calc((100% / var(--card-inview)) - var(--card-gapbetween));
+
     position: relative;
-    gap: 2rem;
-    /* overflow-x: scroll; */
+    gap: var(--card-gapbetween);
     scroll-snap-type: x mandatory;
     z-index: 1;
+    transition: all 0.3s linear;
 }
 
 
 .card {
     padding: 3rem;
-    width: calc((100% / 3) - 2rem);
+    width: var(--card-width);
     background-color: var(--color-font-white);
     border-radius: 1rem;
     flex-grow: 1;
     flex-shrink: 0;
     flex-basis: auto;
     scroll-snap-align: center;
-
 }
 
 .card>* {
@@ -613,7 +599,6 @@ footer {
 
 footer h3 {
     color: var(--color-font-white);
-
 }
 
 .hero__invitation {
@@ -694,7 +679,6 @@ footer h3 {
     width: 98%;
     border: none;
     border-bottom: 1px solid #2B2D32;
-
 }
 
 .toc>p {
@@ -713,7 +697,6 @@ footer h3 {
     *::after,
     *::before {
         /* custom props */
-
         /* font sizes */
         --fs-h1: 3rem;
         --fs-h2: 2.6rem;
@@ -723,7 +706,6 @@ footer h3 {
         --fs-h6: 1.8rem;
 
         --fs-p-reg: 1.6rem;
-
     }
 
     .logo {
@@ -732,6 +714,11 @@ footer h3 {
 
     .header__layout {
         flex-direction: row !important;
+    }
+
+    .nav,
+    .nav__menu {
+        gap: 0.3rem;
     }
 
     .nav__menu {
@@ -747,12 +734,6 @@ footer h3 {
         padding: 2rem;
         box-shadow: -1px 1px 10px 5px var(--color-font-sec);
         border-radius: 2rem 0 0 2rem;
-    }
-
-
-    .nav,
-    .nav__menu {
-        gap: 0.3rem;
     }
 
     .nav__menu * {
@@ -782,7 +763,6 @@ footer h3 {
     .nav__submenu>li {
         width: 60%;
         padding: 0.5rem;
-
     }
 
     .nav__submenu>li:hover {
@@ -795,7 +775,6 @@ footer h3 {
 
     #menu_cta {
         display: initial;
-
     }
 
     #menu_cta:hover {
@@ -814,7 +793,6 @@ footer h3 {
         height: 4rem;
         cursor: pointer;
         z-index: 99;
-
     }
 
     .nav__bar[data-visibility="false"]>.bar:nth-child(2) {
@@ -827,7 +805,6 @@ footer h3 {
         height: 4px;
         background-color: var(--color-font);
         border-radius: 0.5rem;
-
     }
 
     .flex-center {
@@ -881,26 +858,17 @@ footer h3 {
     }
 
     .scroller {
-
         width: 6rem;
         aspect-ratio: 1;
         top: 87%;
-
     }
 
     .review__cards {
-        /* width: 100%; */
+        /* carousel review card section */
+        --card-inview: 2;
+        --card-gapbetween: 2rem;
+        --card-width: calc((100% / var(--card-inview)) - var(--card-gapbetween)/2);
         flex-wrap: nowrap;
-        flex-grow: 0;
-        flex-shrink: 0;
-        flex-basis: auto;
-    }
-
-    .card {
-        width: calc((100% / 2) - 1rem);
-        flex-grow: 1;
-        flex-shrink: 0;
-        flex-basis: auto;
     }
 
     .office {
@@ -925,7 +893,6 @@ footer h3 {
     *::after,
     *::before {
         /* custom props */
-
         /* font sizes */
         --fs-h1: 2.8rem;
         --fs-h2: 2.6rem;
@@ -955,7 +922,6 @@ footer h3 {
 
     .rating__summary {
         justify-content: center;
-
     }
 
     .hero {
@@ -990,8 +956,11 @@ footer h3 {
         line-height: 3rem;
     }
 
-    .card {
-        width: 100%;
+    .review__cards {
+        /* carousel review card section */
+        --card-inview: 1;
+        --card-gapbetween: 2rem;
+        --card-width: calc((100% / var(--card-inview)));
     }
 
     .footer__d_container {
@@ -1004,5 +973,4 @@ footer h3 {
     .company__detail>img {
         padding-bottom: 1rem;
     }
-
 }

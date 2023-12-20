@@ -6,17 +6,13 @@ threeDot.addEventListener('click', (e) => {
     console.log(e)
     if (e.target.dataset.visibility === 'false') {
         navMenu.style.visibility = 'initial'
-        // navMenu.style.width = '60vw'
         e.target.dataset.visibility = 'true'
     } else if (e.target.dataset.visibility === 'true') {
         navMenu.style.visibility = 'hidden'
-        // navMenu.style.width = '0vw'
         e.target.dataset.visibility = 'false'
     }
 })
-// window.addEventListener('resize', () => {
-//     location.reload()
-// })
+
 
 //expand all
 const expandAll = document.querySelector('#expand_all')
@@ -43,15 +39,37 @@ expandAll.addEventListener('click', (e) => {
 const reviewSlides = document.querySelector('.review_slides')
 const reviewCards = document.querySelector('.review__cards')
 let cards = document.querySelectorAll('.card')
-let cardWidth = cards[0].getBoundingClientRect().width
-let gap = reviewCards
+let cardWidth = cards[0].style
 const leftItem = document.querySelector('.scroller.left')
 const rightItem = document.querySelector('.scroller.right')
+let slideInview = getComputedStyle(reviewCards).getPropertyValue("--card-inview")
+let sliderCount = (slideInview == cards.length) ? 0 : 1
+function nextItem() {
 
-rightItem.addEventListener('click', (e) => {
-    console.log(cardWidth)
-    console.log(reviewCards)
+    if (sliderCount <= (cards.length - slideInview)) {
+        reviewCards.style.right = `calc((var(--card-width) + var(--card-gapbetween)) * ${sliderCount})`
+        sliderCount++
+    } else {
+        sliderCount = 0
+        reviewCards.style.right = `calc((var(--card-width) + var(--card-gapbetween))) * ${sliderCount})`
+    }
+}
+function privItem() {
+    if (sliderCount >= 0) {
+        reviewCards.style.right = `calc(((var(--card-width) + var(--card-gapbetween)) * ${sliderCount}))`
+        sliderCount--
+    } else {
+        sliderCount = cards.length - slideInview
+        reviewCards.style.right = `calc(((var(--card-width) + var(--card-gapbetween))) * ${sliderCount}))`
+    }
+}
+rightItem.addEventListener('click', nextItem)
+leftItem.addEventListener('click', privItem)
 
-    reviewCards.style.left = `-${cardWidth + 20}px`
-    //getting some extra width of 15, 7.5 in the smaller screen
+setInterval(nextItem, 3000)
+
+//roloading window for each screen size
+const screens = [479, 480, 481, 767, 768, 769]
+window.addEventListener('resize', (e) => {
+    if (screens.indexOf(e.target.innerWidth) >= 0) location.reload()
 })
