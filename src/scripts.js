@@ -1,19 +1,31 @@
 //nav menu
-const threeDot = document.querySelector('.nav__bar')
+const openNav = document.querySelector('#nav__open')
 const navMenu = document.querySelector('.nav__menu')
+const closeNav = document.querySelector('#nav__close')
 
-threeDot.addEventListener('click', (e) => {
-    console.log(e)
-    if (e.target.dataset.visibility === 'false') {
-        navMenu.classList.remove('hidden')
-        e.target.dataset.visibility = 'true'
-        e.target.innerHTML = '&times;'
-    } else if (e.target.dataset.visibility === 'true') {
-        navMenu.classList.add('hidden')
-        e.target.dataset.visibility = 'false'
-        e.target.innerHTML = '&#9776;'
+openNav.onclick = () => navMenu.classList.remove('hidden')
+closeNav.onclick = () => navMenu.classList.add('hidden')
+
+
+// open close the profile menu
+
+const profileBlock = document.querySelector('#profile_block')
+const profileCard = document.querySelector('#profile__card')
+
+profileBlock.onclick = (e) => {
+    if (e.target.dataset.visibility == 'hidden') {
+        profileCard.style.visibility = "initial"
+        e.target.dataset.visibility = 'shown'
+    } else {
+        profileCard.style.visibility = "hidden"
+        e.target.dataset.visibility = 'hidden'
     }
-})
+}
+// profileBlock.closest('body').onclick = (e) => {
+//     profileCard.style.visibility = "hidden"
+//     e.target.dataset.visibility = 'hidden'
+// }
+// console.log(profileBlock.closest('body'));
 
 
 //expand all
@@ -42,6 +54,7 @@ const reviewSlides = document.querySelector('.review_slides')
 const reviewCards = document.querySelector('.review__cards')
 let cards = document.querySelectorAll('.card')
 let cardWidth = cards[0].style
+const scroller = document.querySelectorAll('.scroller')
 const leftItem = document.querySelector('.scroller.left')
 const rightItem = document.querySelector('.scroller.right')
 let slideInview = getComputedStyle(reviewCards).getPropertyValue("--card-inview")
@@ -65,10 +78,17 @@ function privItem() {
         reviewCards.style.right = `calc(((var(--card-width) + var(--card-gapbetween))) * ${sliderCount}))`
     }
 }
-rightItem.addEventListener('click', nextItem)
-leftItem.addEventListener('click', privItem)
+rightItem.onclick = nextItem
+leftItem.onclick = privItem
 
-setInterval(nextItem, 3000)
+let autoCarousel = setInterval(nextItem, 2000)
+reviewSlides.onmouseenter = () => { clearInterval(autoCarousel) }
+reviewSlides.onmouseleave = () => { autoCarousel = setInterval(nextItem, 2000) }
+
+scroller.forEach(elem => {
+    elem.onmouseenter = () => { clearInterval(autoCarousel) }
+    elem.onmouseleave = () => { autoCarousel = setInterval(nextItem, 2000) }
+})
 
 //roloading window for each screen size
 const screens = [479, 480, 481, 767, 768, 769]

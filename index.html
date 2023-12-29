@@ -18,6 +18,7 @@
             <nav class="nav flex-center">
 
                 <ul class="nav__menu flex-center hidden">
+                    <li id="nav__close">&times;</li>
                     <li><a href="#">Home</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#team">Team</a></li>
@@ -35,7 +36,7 @@
                     <li><a href="#faq">FAQ</a></li>
                     <li id="menu_cta"><a class="btn" href="#">Get Started</a></li>
                 </ul>
-                <div id="profile_block">
+                <div id="profile_block" data-visibility="hidden">
                     <span id="profile" href="#profile">
                         <img src="./src/static/profile_ico.svg" alt="profile">
                         <div id="profile__card" class="flex-center">
@@ -50,7 +51,7 @@
                         </div>
                     </span>
                 </div>
-                <span class="nav__bar" data-visibility="false">
+                <span id="nav__open">
                     &#9776;
                 </span>
                 <a id="nav_cta" class="btn" href="#">Get Started</a>
@@ -135,7 +136,7 @@
                 <a href="#more">See more about courses <img src="./src/static/triangle_blue.svg" alt="triangle"></a>
             </div>
             <div class="skill">
-                <h5>Skills you'll gain</h5>
+                <h4>Skills you'll gain</h4>
                 <ul>
                     <li>
                         <img src="./src/static/checkbox_violet.svg" alt="checkbox">
