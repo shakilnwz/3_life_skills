@@ -171,11 +171,13 @@ header {
     background-repeat: no-repeat;
     padding: 1.7rem 0 5rem 0;
     color: var(--color-font-white);
+    overflow: hidden;
 }
 
 header::after,
 header::before {
-    position: relative;
+    width: 10.7rem;
+    height: 12.3rem;
     content: '';
     background: url(./static/squaredots_white.svg);
     background-repeat: no-repeat;
@@ -184,13 +186,15 @@ header::before {
 }
 
 header::after {
-    top: -10rem;
-    right: 6rem;
+    position: relative;
+    bottom: 10rem;
+    right: 7rem;
 }
 
 header::before {
-    top: 0rem;
-    left: 0rem;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 header a {
@@ -199,6 +203,10 @@ header a {
 }
 
 /* nav */
+.header__layout {
+    position: relative;
+    z-index: 5;
+}
 
 .nav {
     gap: clamp(0.3rem, 1vw, 2rem);
@@ -255,13 +263,12 @@ header a {
     border-color: var(--color-btn);
 }
 
-#nav__open {
-    display: none;
-}
-
+#nav__open,
 #nav__close {
     display: none;
 }
+
+
 
 #profile_block {
     width: 4rem;
@@ -317,6 +324,8 @@ header a {
 
 /* hero section */
 .hero {
+    position: relative;
+    z-index: 1;
     padding-block: clamp(4rem, 10%, 8.6rem) clamp(4rem, 15%, 11.3rem);
 }
 
@@ -360,7 +369,6 @@ header a {
 }
 
 .skill-req {
-    /* position: relative; */
     flex-wrap: wrap;
     gap: clamp(0.3rem, 1vw, 2rem);
     justify-content: space-around;
@@ -373,6 +381,7 @@ header a {
 }
 
 .skill-req li {
+    height: 4.5rem;
     gap: 1rem;
     flex-wrap: nowrap;
 }
@@ -381,6 +390,8 @@ header a {
     color: var(--color-font-sec);
     line-height: 1.8rem;
 }
+
+
 
 /* hero section end */
 
@@ -478,13 +489,21 @@ header a {
     line-height: 4.2rem;
 }
 
-details>summary {
-    list-style: none;
+.summary {
     cursor: pointer;
+    user-select: none;
 }
 
-details[open]>summary .expand-button {
+.active>.summary .expand-button {
     transform: rotate(180deg);
+}
+
+.details>ul {
+    display: none;
+}
+
+.active>ul {
+    display: block !important;
 }
 
 .lesson {
@@ -539,8 +558,8 @@ details[open]>summary .expand-button {
 /* for bg dots */
 .review_slides::after,
 .review_slides::before {
-    width: 14rem;
-    aspect-ratio: 1;
+    width: 10.7rem;
+    height: 12.3rem;
     position: absolute;
     content: '';
     background: url(./static/squaredots_gradient.svg);
@@ -548,13 +567,13 @@ details[open]>summary .expand-button {
 }
 
 .review_slides::before {
-    bottom: 5%;
-    left: 17%;
+    bottom: 8%;
+    left: 16.5%;
 }
 
 .review_slides::after {
-    top: 25%;
-    right: 15%;
+    top: 27%;
+    right: 16.5%;
     z-index: 0;
 }
 
@@ -773,6 +792,17 @@ footer h3 {
         height: 4rem;
     }
 
+    header::after {
+        position: relative;
+        bottom: 12rem;
+        right: 7rem;
+    }
+
+    header::before {
+        top: 7rem;
+        left: -5rem;
+    }
+
     .header__layout {
         flex-direction: row !important;
     }
@@ -797,13 +827,41 @@ footer h3 {
         z-index: 2;
     }
 
-    #nav__close {
-        display: initial;
-        color: var(--color-font);
+    #nav__open:active,
+    #nav__close:active {
+        transform: scale(1.2);
+        background-color: var(--color-btn);
+    }
+
+    #nav__open {
+        font-weight: var(--fw-bold);
+        text-align: center;
+        width: 4rem;
+        aspect-ratio: 1;
+        display: block;
+        color: var(--color-font-white);
         font-size: var(--fs-h1);
-        padding: 1rem;
+        line-height: 4rem;
         cursor: pointer;
         border: none;
+        border-radius: 50%;
+        user-select: none;
+    }
+
+    #nav__close {
+        font-weight: var(--fw-bold);
+        text-align: center;
+        width: max-content !important;
+        aspect-ratio: 1;
+        display: block;
+        color: var(--color-font);
+        font-size: var(--fs-h1);
+        padding: 0 0 .5rem 0;
+        line-height: var(--fs-h1);
+        cursor: pointer;
+        border: none;
+        border-radius: 50%;
+        user-select: none;
     }
 
     .nav__menu::before:hover {
@@ -866,18 +924,7 @@ footer h3 {
         height: 20rem;
     }
 
-    #nav__open {
-        font-size: 4rem;
-        position: relative;
-        display: block;
-        padding: 1rem;
-        width: 6rem;
-        cursor: pointer;
-        z-index: 1;
-        user-select: none;
-        border-radius: .5rem;
-        text-align: center;
-    }
+
 
     .flex-center {
         flex-wrap: wrap;
@@ -889,8 +936,8 @@ footer h3 {
         flex-direction: column;
         align-content: center;
         align-items: flex-start;
-        gap: 1rem;
-        padding: 2rem clamp(2rem, 6%, 10rem);
+        gap: 3rem;
+        padding: 3rem clamp(1rem, 6%, 10rem);
     }
 
     .skill-req li {
@@ -951,10 +998,20 @@ footer h3 {
         flex-wrap: nowrap;
     }
 
-    .review_slides::after,
-    .review_slides::before {
-        display: none;
+    .review_slides {
+        overflow: hidden;
     }
+
+    .review_slides::before {
+        bottom: 5%;
+        left: 0;
+    }
+
+    .review_slides::after {
+        top: 25%;
+        right: 0;
+    }
+
 
     .company_logos {
         display: grid;
@@ -1034,7 +1091,7 @@ footer h3 {
     }
 
     .skill {
-        padding: clamp(1.5rem, 1vw, 2rem);
+        padding: 2rem;
     }
 
     .course_detail__summary {

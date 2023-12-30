@@ -30,19 +30,33 @@ profileBlock.onclick = (e) => {
 
 //expand all
 const expandAll = document.querySelector('#expand_all')
-const accordianAll = document.querySelectorAll('details')
+const accordianAll = document.querySelectorAll('.details')
+const summary = document.querySelectorAll('.summary')
+summary.forEach(elem => {
+    elem.addEventListener('click', function (e) {
+        if (this.parentElement.classList.contains('active')) {
+            this.parentElement.classList.remove('active')
+        } else {
+            this.parentElement.classList.add('active')
+        }
+    })
+})
+const dailyLessons = document.querySelector('.daily__lessons')
+
+
+
 
 
 expandAll.addEventListener('click', (e) => {
     if (e.target.dataset.status === 'false') {
         accordianAll.forEach(elem => {
-            return elem.open = true;
+            elem.classList.add('active')
         })
         e.target.dataset.status = 'true'
         e.target.innerText = 'Collapse All Sections'
     } else if (e.target.dataset.status === 'true') {
         accordianAll.forEach(elem => {
-            return elem.open = false;
+            elem.classList.remove('active')
         })
         e.target.dataset.status = 'false'
         e.target.innerText = 'Expand All Sections'
@@ -59,8 +73,8 @@ const leftItem = document.querySelector('.scroller.left')
 const rightItem = document.querySelector('.scroller.right')
 let slideInview = getComputedStyle(reviewCards).getPropertyValue("--card-inview")
 let sliderCount = (slideInview == cards.length) ? 0 : 1
-function nextItem() {
 
+function nextItem() {
     if (sliderCount <= (cards.length - slideInview)) {
         reviewCards.style.right = `calc((var(--card-width) + var(--card-gapbetween)) * ${sliderCount})`
         sliderCount++
@@ -69,6 +83,7 @@ function nextItem() {
         reviewCards.style.right = `calc((var(--card-width) + var(--card-gapbetween))) * ${sliderCount})`
     }
 }
+
 function privItem() {
     if (sliderCount >= 0) {
         reviewCards.style.right = `calc(((var(--card-width) + var(--card-gapbetween)) * ${sliderCount}))`
@@ -88,6 +103,9 @@ reviewSlides.onmouseleave = () => { autoCarousel = setInterval(nextItem, 2000) }
 scroller.forEach(elem => {
     elem.onmouseenter = () => { clearInterval(autoCarousel) }
     elem.onmouseleave = () => { autoCarousel = setInterval(nextItem, 2000) }
+    if (slideInview == cards.length) {
+        elem.style.display = 'none'
+    }
 })
 
 //roloading window for each screen size
