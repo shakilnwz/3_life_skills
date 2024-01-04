@@ -1,13 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lato&display=swap');
-
 /* default props */
 
-*,
-*::after,
-*::before {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+:root {
     /* custom props */
     /* fonts*/
     --font-main: 'Inter', sans-serif;
@@ -42,11 +41,11 @@
     --color-font-white: #ffffff;
     --color-footer-bg: #1E2431;
 
-
 }
 
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -126,6 +125,7 @@ a,
     padding: 0 2rem;
     border: 1px solid var(--color-btn-border);
     border-radius: 5rem;
+    transition: all 0.3s ease-in-out;
 }
 
 .btn:hover {
@@ -164,49 +164,72 @@ a,
 
 /* header section start */
 header {
-    background-image: url(./static/hero_bg.svg);
-    width: 100%;
-    background-position-x: center;
-    background-position-y: -1rem;
-    background-repeat: no-repeat;
-    padding: 1.7rem 0 5rem 0;
-    color: var(--color-font-white);
-    overflow: hidden;
-}
-
-header::after,
-header::before {
-    width: 10.7rem;
-    height: 12.3rem;
-    content: '';
-    background: url(./static/squaredots_white.svg);
-    background-repeat: no-repeat;
-    z-index: 0;
-    overflow: hidden;
-}
-
-header::after {
-    position: relative;
-    bottom: 10rem;
-    right: 7rem;
-}
-
-header::before {
     position: absolute;
+    padding: 1.7rem 0;
     top: 0;
+    right: 0;
     left: 0;
+    z-index: 5;
+    color: var(--color-font-white);
 }
 
 header a {
     color: var(--color-font-white);
-    text-decoration: none;
+}
+
+/* header scroll up behavior */
+.active-header {
+    position: fixed;
+    background-color: var(--color-footer-bg);
+    padding: 1rem 0;
+    transition: position 0.3s ease-in-out, background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+/* for scroll to top button */
+#scroll-top {
+    user-select: none;
+    position: fixed;
+    padding: 1rem;
+    background-color: var(--color-btn);
+    font-size: 3rem;
+    font-weight: var(--fw-bold);
+    text-align: center;
+    border-radius: 50%;
+    right: 2rem;
+    bottom: 5rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+#scroll-top::after {
+    position: absolute;
+    content: 'Scroll to the top.';
+    width: max-content;
+    color: var(--color-font);
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-p-reg);
+    background-color: var(--color-btn);
+    visibility: hidden;
+    border-radius: 5px;
+    border: 1px solid var(--color-footer-bg);
+    padding-inline: 1rem;
+    right: 0;
+    top: -3rem;
+    transition: all 0.3s ease-in-out;
+}
+
+#scroll-top:hover {
+    color: var(--color-btn);
+    border: 1px solid var(--color-btn);
+    background-color: var(--color-font-white);
+}
+
+#scroll-top:hover::after {
+    visibility: visible;
 }
 
 /* nav */
-.header__layout {
-    position: relative;
-    z-index: 5;
-}
 
 .nav {
     gap: clamp(0.3rem, 1vw, 2rem);
@@ -269,7 +292,6 @@ header a {
 }
 
 
-
 #profile_block {
     width: 4rem;
     aspect-ratio: 1;
@@ -278,6 +300,7 @@ header a {
     position: relative;
     display: grid;
     place-items: center;
+    transition: all 0.3s ease-in-out;
 }
 
 #profile_block:hover {
@@ -322,11 +345,53 @@ header a {
 
 /* nav end*/
 
-/* hero section */
+/* header section end */
+
+
+
+
+/* hero section start */
+
 .hero {
+    --hero-top-pad: 8.58rem;
+    padding-top: calc(var(--header-height) + var(--hero-top-pad));
+    background-image: url(./src/static/hero_bg.svg);
+    background-position-x: center;
+    background-position-y: top;
+    background-repeat: no-repeat;
+    color: var(--color-font-white);
+    overflow: hidden;
     position: relative;
     z-index: 1;
-    padding-block: clamp(4rem, 10%, 8.6rem) clamp(4rem, 15%, 11.3rem);
+    /* padding-block: clamp(4rem, 10%, 8.6rem) clamp(4rem, 15%, 11.3rem); */
+}
+
+.hero::before,
+.hero::after {
+    width: 10.7rem;
+    height: 12.3rem;
+    content: '';
+    background: url(./src/static/squaredots_white.svg);
+    background-repeat: no-repeat;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.hero::after {
+    position: relative;
+    bottom: 10rem;
+    right: 7rem;
+}
+
+.hero::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hero a {
+    color: var(--color-font-white);
+    text-decoration: none;
 }
 
 .pagenav {
@@ -356,7 +421,6 @@ header a {
 
 .rating__sum {
     font-size: var(--fs-p-lrg);
-
 }
 
 .hero__start {
@@ -368,7 +432,16 @@ header a {
     padding-inline: clamp(0.5rem, 2%, 5rem);
 }
 
-.skill-req {
+.hero__cta {
+    padding-bottom: clamp(4rem, 15%, 11.3rem);
+}
+
+/* .required-skills {
+    padding-top: clamp(4rem, 15%, 11.3rem);
+} */
+
+#skill-req {
+    position: relative;
     flex-wrap: wrap;
     gap: clamp(0.3rem, 1vw, 2rem);
     justify-content: space-around;
@@ -377,31 +450,28 @@ header a {
     padding: 3.8rem 0 2.6rem;
     border-radius: 0.6rem;
     box-shadow: 14px 11px 45px 0px rgba(0, 0, 0, 0.06);
-    z-index: 1;
+    z-index: 3;
 }
 
-.skill-req li {
-    height: 4.5rem;
+#skill-req li {
     gap: 1rem;
     flex-wrap: nowrap;
 }
 
-.skill-req p {
+#skill-req p {
     color: var(--color-font-sec);
     line-height: 1.8rem;
 }
 
-
-
 /* hero section end */
 
-/* header section end */
+
+
 
 .about-course {
     gap: clamp(0.3rem, 10vw, 5rem);
     justify-content: flex-start;
 }
-
 
 .about-course a {
     display: inline-block;
@@ -483,7 +553,7 @@ header a {
 .daily__lessons {
     padding: 4.2rem 5.2rem 6.7rem 6.2rem;
     border-radius: .8rem;
-    background: url(./static/bg_cityscape.svg), linear-gradient(270deg, rgba(229, 238, 253, 1) 4.15%, rgba(229, 238, 253, 0) 137.71%);
+    background: url(./src/static/bg_cityscape.svg), linear-gradient(270deg, rgba(229, 238, 253, 1) 4.15%, rgba(229, 238, 253, 0) 137.71%);
     background-repeat: no-repeat;
     background-position: right bottom;
     line-height: 4.2rem;
@@ -562,7 +632,7 @@ header a {
     height: 12.3rem;
     position: absolute;
     content: '';
-    background: url(./static/squaredots_gradient.svg);
+    background: url(./src/static/squaredots_gradient.svg);
     background-repeat: no-repeat;
 }
 
@@ -678,7 +748,7 @@ footer h3 {
 .hero__invitation::after {
     --bottom-cover: 25rem;
     content: '';
-    background-image: url(./static/hero_bg.svg);
+    background-image: url(./src/static/hero_bg.svg);
     background-position: top center;
     width: 100%;
     height: calc(100% + var(--bottom-cover));
@@ -702,9 +772,7 @@ footer h3 {
 }
 
 .hero__inv_container .btn {
-
     width: 17rem;
-
 }
 
 .office {
@@ -716,7 +784,7 @@ footer h3 {
 
 .footer__detail {
     z-index: 2;
-    background-image: url(./static/footer_bg.svg);
+    background-image: url(./src/static/footer_bg.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
@@ -773,9 +841,7 @@ footer h3 {
 
 @media (max-width: 768px) {
 
-    *,
-    *::after,
-    *::before {
+    :root {
         /* custom props */
         /* font sizes */
         --fs-h1: 3rem;
@@ -784,21 +850,19 @@ footer h3 {
         --fs-h4: 2.2rem;
         --fs-h5: 2rem;
         --fs-h6: 1.8rem;
-
-        --fs-p-reg: 1.6rem;
     }
 
     .logo {
         height: 4rem;
     }
 
-    header::after {
+    .hero::after {
         position: relative;
         bottom: 12rem;
         right: 7rem;
     }
 
-    header::before {
+    .hero::before {
         top: 7rem;
         left: -5rem;
     }
@@ -930,7 +994,7 @@ footer h3 {
         flex-wrap: wrap;
     }
 
-    .skill-req {
+    #skill-req {
         justify-self: center;
         width: fit-content;
         flex-direction: column;
@@ -940,7 +1004,7 @@ footer h3 {
         padding: 3rem clamp(1rem, 6%, 10rem);
     }
 
-    .skill-req li {
+    #skill-req li {
         padding: 0.5rem 0;
     }
 
@@ -1043,9 +1107,7 @@ footer h3 {
 
 @media (max-width:480px) {
 
-    *,
-    *::after,
-    *::before {
+    :root {
         /* custom props */
         /* font sizes */
         --fs-h1: 2.8rem;
@@ -1054,8 +1116,6 @@ footer h3 {
         --fs-h4: 2.2rem;
         --fs-h5: 1.8rem;
         --fs-h6: 1.8rem;
-        --fs-p-lrg: 1.6rem;
-        --fs-p-reg: 1.5rem;
 
     }
 

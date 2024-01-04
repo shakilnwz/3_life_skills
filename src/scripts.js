@@ -12,13 +12,13 @@ closeNav.onclick = () => navMenu.classList.add('hidden')
 const profileBlock = document.querySelector('#profile_block')
 const profileCard = document.querySelector('#profile__card')
 
-profileBlock.onclick = (e) => {
-    if (e.target.dataset.visibility == 'hidden') {
+profileBlock.onclick = function () {
+    if (this.dataset.visibility == 'hidden') {
         profileCard.style.visibility = "initial"
-        e.target.dataset.visibility = 'shown'
+        this.dataset.visibility = "shown"
     } else {
         profileCard.style.visibility = "hidden"
-        e.target.dataset.visibility = 'hidden'
+        this.dataset.visibility = "hidden"
     }
 }
 // profileBlock.closest('body').onclick = (e) => {
@@ -42,8 +42,6 @@ summary.forEach(elem => {
     })
 })
 const dailyLessons = document.querySelector('.daily__lessons')
-
-
 
 
 
@@ -113,3 +111,45 @@ const screens = [479, 480, 481, 767, 768, 769]
 window.addEventListener('resize', (e) => {
     if (screens.indexOf(e.target.innerWidth) >= 0) location.reload()
 })
+
+
+//header scroll behavior
+const menuHead = document.querySelector("header");
+let lastScrollPosition = 0;
+let scrollDirection = "down";
+
+window.addEventListener("scroll", () => {
+    const currentScrollPosition = window.scrollY;
+
+    if (currentScrollPosition > 0 && lastScrollPosition < currentScrollPosition) {
+        // Scrolling down
+        lastScrollPosition = currentScrollPosition;
+        menuHead.classList.remove('active-header');
+    } else if (lastScrollPosition > currentScrollPosition) {
+        // Scrolling up
+        lastScrollPosition = currentScrollPosition;
+        scrollDirection = "up";
+        menuHead.classList.add('active-header');
+    }
+
+    // Check if the scroll position is less than 120 to toggle the header class
+    if (currentScrollPosition < 120) {
+        menuHead.classList.remove('active-header');
+    }
+});
+
+// for offsetting hero from the top
+const headerHeight = getComputedStyle(menuHead).height
+console.log(headerHeight)
+const hero = document.querySelector(".hero")
+hero.style.setProperty('--header-height', headerHeight)
+
+//scrollbar position top indicator
+
+
+
+//scroll to top bar
+const scrollTop = document.querySelector("#scroll-top")
+scrollTop.onclick = () => {
+    window.scrollTo(0, 0)
+}

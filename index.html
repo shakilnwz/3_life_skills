@@ -6,13 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3 Life Skills</title>
     <link rel="shortcut icon" href="./src/static/logo.svg" type="image/x-icon">
-    <link rel="stylesheet" href="./src/styles.css">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lato&display=swap">
     <script src="./src/scripts.js" defer></script>
 </head>
 
 <body>
+    <!-- body page start -->
+
+
+    <!-- header section start -->
+
     <header class="content-grid full-width">
         <div class="header__layout flex-center">
+
+
             <img src="./src/static/logo.svg" alt="logo" class="logo">
 
             <nav class="nav flex-center">
@@ -58,7 +67,13 @@
 
             </nav>
         </div>
-        <section class="hero">
+        <span id="scroll-top">&#8657;</span>
+    </header>
+
+    <!-- header section end -->
+
+    <div class="main content-grid">
+        <section class="hero full-width">
             <div class="pagenav">
                 <a href="#home">Home</a><span> - </span>
                 <a href="#course">Course</a><span> - </span>
@@ -84,41 +99,46 @@
                 <span class="total_rated">2,696 Ratings</span>
                 <img id="paperplane" src="./src/static/paperplane.svg" alt="flying paperplane">
             </div>
-            <a href="#" class="hero__start btn">Start Now</a>
-            <span class="total_enrolled">3,567 Larners Enrolled</span>
+            <div class="hero__cta">
+                <a href="#" class="hero__start btn">Start Now</a>
+                <span class="total_enrolled">3,567 Larners Enrolled</span>
+            </div>
+            <div class="required-skills">
+
+                <ul id='skill-req' class="flex-center">
+                    <li class="flex-center">
+                        <img src="./src/static/analytics.svg" alt="analytics">
+                        <span>
+                            <p>Skill level</p>
+                            <h5>Beginner</h5>
+                        </span>
+                    </li>
+                    <li class="flex-center">
+                        <img src="./src/static/clock.svg" alt="clock">
+                        <span>
+                            <p>Time to complete</p>
+                            <h5>Approx. 9 hours</h5>
+                        </span>
+                    </li>
+                    <li class="flex-center">
+                        <img src="./src/static/cert.svg" alt="certificate icon">
+                        <span>
+                            <p>Certificate of completion</p>
+                            <h5>Included with paid plans</h5>
+                        </span>
+                    </li>
+                    <li class="flex-center">
+                        <img src="./src/static/prereq.svg" alt="prerequisites">
+                        <span>
+                            <p>Prerequisites</p>
+                            <h5>None</h5>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
         </section>
-        <ul class="skill-req flex-center">
-            <li class="flex-center">
-                <img src="./src/static/analytics.svg" alt="analytics">
-                <span>
-                    <p>Skill level</p>
-                    <h5>Beginner</h5>
-                </span>
-            </li>
-            <li class="flex-center">
-                <img src="./src/static/clock.svg" alt="clock">
-                <span>
-                    <p>Time to complete</p>
-                    <h5>Approx. 9 hours</h5>
-                </span>
-            </li>
-            <li class="flex-center">
-                <img src="./src/static/cert.svg" alt="certificate icon">
-                <span>
-                    <p>Certificate of completion</p>
-                    <h5>Included with paid plans</h5>
-                </span>
-            </li>
-            <li class="flex-center">
-                <img src="./src/static/prereq.svg" alt="prerequisites">
-                <span>
-                    <p>Prerequisites</p>
-                    <h5>None</h5>
-                </span>
-            </li>
-        </ul>
-    </header>
-    <div class="main content-grid">
+
         <section class="about-course flex-center">
             <div>
                 <div class="about__detail">
@@ -198,7 +218,9 @@
 
             </div>
             <div class="daily__lessons">
+
                 <!-- lesson 1 first child  -->
+
                 <!-- first parent -->
                 <div class="details lesson">
                     <div class="summary">
@@ -708,7 +730,12 @@
             </div>
         </section>
 
+
+
     </footer>
+
+    <!-- body page end -->
+
 </body>
 
 </html>
