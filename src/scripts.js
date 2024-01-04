@@ -118,7 +118,7 @@ const menuHead = document.querySelector("header");
 let lastScrollPosition = 0;
 let scrollDirection = "down";
 
-window.addEventListener("scroll", () => {
+function revealNav() {
     const currentScrollPosition = window.scrollY;
 
     if (currentScrollPosition > 0 && lastScrollPosition < currentScrollPosition) {
@@ -136,20 +136,59 @@ window.addEventListener("scroll", () => {
     if (currentScrollPosition < 120) {
         menuHead.classList.remove('active-header');
     }
-});
-
-// for offsetting hero from the top
-const headerHeight = getComputedStyle(menuHead).height
-console.log(headerHeight)
-const hero = document.querySelector(".hero")
-hero.style.setProperty('--header-height', headerHeight)
-
-//scrollbar position top indicator
+}
 
 
 
-//scroll to top bar
+//scroll to top button
 const scrollTop = document.querySelector("#scroll-top")
+
 scrollTop.onclick = () => {
     window.scrollTo(0, 0)
 }
+//show hide the scroll to top button
+function scrollToTop() {
+    if (window.innerHeight < window.scrollY) {
+        scrollTop.style.visibility = 'visible';
+    } else {
+        scrollTop.style.visibility = 'hidden';
+    }
+}
+
+
+
+//scroll progressbar
+const scrollProgressBar = document.querySelector(".scroll-progress")
+
+function scrollProgBar() {
+    let barWidth = (document.documentElement.scrollHeight - document.documentElement.clientHeight);
+    let scrollPos = document.documentElement.scrollTop;
+    scrollProgressBar.style.width = `${(scrollPos / barWidth * 100)}%`
+}
+
+
+
+//attach functions to the event
+window.addEventListener("scroll", () => {
+    //reveal the navbar
+    revealNav()
+    //show the scrolltop button
+    scrollToTop()
+    //scroll progress bar
+    scrollProgBar()
+
+});
+
+// for offsetting hero from the top
+// const headerHeight = getComputedStyle(menuHead).height
+// console.log(headerHeight)
+// const hero = document.querySelector(".hero")
+// hero.style.setProperty('--header-height', headerHeight)
+
+
+
+
+
+
+
+

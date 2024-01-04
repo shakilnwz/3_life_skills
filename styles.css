@@ -49,6 +49,7 @@ html {
 }
 
 body {
+
     font-size: var(--fs-p-reg);
     line-height: 2.6rem;
     font-family: var(--font-main);
@@ -171,6 +172,8 @@ header {
     left: 0;
     z-index: 5;
     color: var(--color-font-white);
+
+
 }
 
 header a {
@@ -182,11 +185,24 @@ header a {
     position: fixed;
     background-color: var(--color-footer-bg);
     padding: 1rem 0;
+    animation: activeHead 0.3s ease-in-out;
     transition: position 0.3s ease-in-out, background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+@keyframes activeHead {
+    0% {
+        top: -10rem;
+    }
+
+    100% {
+        top: 0;
+    }
+
 }
 
 /* for scroll to top button */
 #scroll-top {
+    visibility: hidden;
     user-select: none;
     position: fixed;
     padding: 1rem;
@@ -343,6 +359,28 @@ header a {
     display: initial;
 }
 
+
+.scroll-progress {
+    background-color: var(--color-btn-border);
+    top: 0;
+    left: 0;
+    position: fixed;
+    height: 4px;
+    z-index: 999;
+    animation: scrollbar 0.3s ease;
+}
+
+@keyframes scrollbar {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+
+}
+
 /* nav end*/
 
 /* header section end */
@@ -353,6 +391,7 @@ header a {
 /* hero section start */
 
 .hero {
+    --header-height: 9.5rem;
     --hero-top-pad: 8.58rem;
     padding-top: calc(var(--header-height) + var(--hero-top-pad));
     background-image: url(./src/static/hero_bg.svg);
