@@ -200,6 +200,7 @@ header a {
 
 }
 
+/* extra items */
 /* for scroll to top button */
 #scroll-top {
     visibility: hidden;
@@ -244,6 +245,68 @@ header a {
 #scroll-top:hover::after {
     visibility: visible;
 }
+
+/* loader */
+.loader {
+    display: grid;
+    place-items: center;
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99999;
+    background-color: var(--color-hero-bg);
+    /* animation: fadeOut 0.5s ease; */
+
+    /* transition: opacity 0.5s ease-out; */
+}
+
+.loader__spinner {
+    content: '';
+    width: 5rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 6px solid var(--color-font-white);
+    border-left: 6px solid var(--color-btn);
+    animation: spinner 1s linear infinite;
+
+}
+
+.loader__none {
+    animation: fadeOutDisplayNone 0.5s forwards;
+
+}
+
+@keyframes fadeOutDisplayNone {
+    0% {
+        opacity: 1;
+    }
+
+    99.9% {
+        opacity: 0;
+
+    }
+
+    100% {
+        display: none;
+    }
+
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+/* extra items end */
 
 /* nav */
 

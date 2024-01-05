@@ -184,10 +184,17 @@ window.addEventListener("scroll", () => {
 // console.log(headerHeight)
 // const hero = document.querySelector(".hero")
 // hero.style.setProperty('--header-height', headerHeight)
+const loader = document.querySelector('.loader')
 
 
+window.onload = () => {
+    loader.classList.add('loader__none')
+}
+//alternative idea=> animation time can be set 
 
 
+console.log(window)
+console.log(document.cookie)
 
 
 
