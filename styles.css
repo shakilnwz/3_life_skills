@@ -302,6 +302,15 @@ header a {
     transform: rotate(360deg);
   }
 }
+/* animate on scroll*/
+
+.animate {
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.animated {
+  opacity: 1;
+}
 
 /*multipage form*/
 .multipage-form {
@@ -326,6 +335,7 @@ header a {
 }
 .close-form {
   user-select: none;
+  cursor: pointer;
   padding-top: 0.4rem;
   padding-inline: 0.7rem;
   padding-bottom: 0.6rem;
@@ -339,7 +349,7 @@ header a {
 .close-form:hover {
   background-color: var(--color-btn);
 }
-
+/*
 .indicator {
   width: 100%;
   padding: 1rem;
@@ -356,7 +366,12 @@ header a {
   background-color: var(--color-font-white);
   border-radius: 50%;
 }
+.circle.done {
+  content: "";
+  background-color: var(--color-btn);
+}*/
 .newsletter {
+  overflow-x: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -366,14 +381,56 @@ header a {
   flex-shrink: 0;
 }
 .first-step {
+  width: 100%;
+}
+.second-step {
   display: none;
 }
+.hide-form {
+  animation: hideForm 0.3s forwards;
+}
+.show-form {
+  display: block;
+  animation: showForm 0.3s forwards !important;
+}
+@keyframes hideForm {
+  0% {
+    opacity: 1;
+  }
+  99.9% {
+    opacity: 0;
+  }
+  100% {
+    display: none;
+  }
+}
 
+@keyframes showForm {
+  0% {
+    display: block !important;
+  }
+  99.9% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .second-step > label,
 input {
   display: inline-block;
 }
-.newsletter input {
+
+.second-step__freq {
+  padding-block: 0.5rem;
+  padding-left: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+.newsletter input:not([type="checkbox"]) {
   padding: 1rem;
   width: 100%;
   margin-bottom: 1rem;
@@ -381,6 +438,8 @@ input {
   border: none;
 }
 #form_next.btn {
+  user-select: none;
+  cursor: pointer;
   font-size: var(--fs-p-reg);
   align-self: center;
   padding: 0;

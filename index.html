@@ -35,15 +35,14 @@
       </div>
 
       <!-- multipage form -->
-      <div class="multipage-form">
+      <div class="multipage-form loader__none">
         <h3 class="form-header">Sign up for our Newsletter</h3>
         <span class="close-form">&CircleTimes;</span>
-        <div class="indicator">
+        <!--  <div class="indicator">
           <span class="circle">1</span>
           <span class="circle">2</span>
-          <span class="circle">3</span>
-        </div>
-        <form class="newsletter">
+        </div> -->
+        <form method="POST" class="newsletter">
           <div class="first-step">
             <label for="name">Enter Your Name</label>
             <input id="name" type="name" name="name" placeholder="John Doe" />
@@ -54,25 +53,36 @@
               type="email"
               placeholder="someone@example.com"
             />
-            <button class="btn" id="form_next" type="next">
-              Select Frequency
-            </button>
+            <span class="btn" id="form_next">Select Frequency</span>
           </div>
           <div class="second-step">
             <p>Select Frequency of Newsletter</p>
-            <input type="radio" name="daily" value="daily" id="daily" />
-            <label for="daily">Daily</label>
-            <input type="radio" name="weekly" value="weekly" id="weekly" />
-            <label for="weekly">Weekly</label>
-            <input
-              type="radio"
-              name="quarterly"
-              value="quarterly"
-              id="quarterly"
-            />
-            <label for="quarterly">Quarterly</label>
-            <input type="radio" name="monthly" value="monthly" id="monthly" />
-            <label for="monthly">Monthly</label>
+            <div class="second-step__freq">
+              <input type="checkbox" name="daily" value="daily" id="daily" />
+              <label for="daily">Daily</label>
+            </div>
+            <div class="second-step__freq">
+              <input type="checkbox" name="weekly" value="weekly" id="weekly" />
+              <label for="weekly">Weekly</label>
+            </div>
+            <div class="second-step__freq">
+              <input
+                type="checkbox"
+                name="quarterly"
+                value="quarterly"
+                id="quarterly"
+              />
+              <label for="quarterly">Quarterly</label>
+            </div>
+            <div class="second-step__freq">
+              <input
+                type="checkbox"
+                name="monthly"
+                value="monthly"
+                id="monthly"
+              />
+              <label for="monthly">Monthly</label>
+            </div>
             <button class="btn" id="form_submit" type="submit">
               Subscribe
             </button>
@@ -205,7 +215,7 @@
         </div>
       </section>
 
-      <section class="about-course flex-center">
+      <section class="about-course flex-center animate">
         <div>
           <div class="about__detail">
             <h2>About this course</h2>
@@ -248,9 +258,9 @@
           </ul>
         </div>
       </section>
-      <section class="curriculum">
+      <section class="curriculum animate">
         <h4>Course curriculum</h4>
-        <div class="course_detail flex-center">
+        <div class="course_detail flex-center animate">
           <ul class="course_detail__summary flex-center">
             <li>
               <img src="./src/static/dot_violet.svg" alt="dot" />
@@ -288,7 +298,7 @@
           <!-- lesson 1 first child  -->
 
           <!-- first parent -->
-          <div class="details lesson">
+          <div class="details lesson animate">
             <div class="summary">
               <p class="red">Day 1</p>
               <div class="title_expand flex-center">
@@ -363,7 +373,7 @@
           <hr class="innerline" />
 
           <!-- lesson 2 first child  -->
-          <div class="details lesson">
+          <div class="details lesson animate">
             <div class="summary">
               <p class="red">Day 2</p>
               <div class="title_expand flex-center">
@@ -402,7 +412,7 @@
           <hr class="innerline" />
 
           <!-- lesson 3 first child  -->
-          <div class="details lesson">
+          <div class="details lesson animate">
             <div class="summary">
               <p class="red">Day 3</p>
               <div class="title_expand flex-center">
@@ -440,7 +450,7 @@
           <hr class="innerline" />
 
           <!-- lesson 4 first child  -->
-          <div class="details lesson">
+          <div class="details lesson animate">
             <div class="summary">
               <p class="red">Day 4</p>
               <div class="title_expand flex-center">
@@ -480,7 +490,7 @@
           <hr class="innerline" />
 
           <!-- lesson 5 first child  -->
-          <div class="details lesson">
+          <div class="details lesson animate">
             <div class="summary">
               <p class="red">Day 5</p>
               <div class="title_expand flex-center">
@@ -521,7 +531,7 @@
           <hr class="innerline" />
 
           <!-- lesson 6 first child  -->
-          <div class="details lesson">
+          <div class="details lesson animate">
             <div class="summary">
               <p class="red">Day 6</p>
               <div class="title_expand flex-center">
@@ -562,7 +572,7 @@
           <hr class="innerline" />
 
           <!-- lesson 7 first child  -->
-          <div class="details lesson">
+          <div class="details lesson animate">
             <div class="summary">
               <p class="red">Day 7</p>
               <div class="title_expand flex-center">
@@ -603,7 +613,7 @@
           <hr class="innerline" />
 
           <!-- lesson 8 first child  -->
-          <div class="details lesson">
+          <div class="details lesson animate">
             <div class="summary">
               <p class="red">Day 8</p>
               <div class="title_expand flex-center">
@@ -644,7 +654,7 @@
           <hr class="innerline" />
         </div>
       </section>
-      <section class="about__author">
+      <section class="about__author animate">
         <h4>About the author</h4>
         <a href="#author" class="author">
           <img src="./src/static/author.png" alt="author" />
@@ -664,7 +674,7 @@
           <img src="./src/static/triangle_blue.svg" alt="pointer"
         /></a>
       </section>
-      <section class="review full-width">
+      <section class="review full-width animate">
         <h2>Reviews from learners</h2>
         <p>
           We are constantly taking the next step towards bringing a workplace
@@ -738,7 +748,7 @@
           <img src="./src/static/arrow_next.svg" alt="next item" />
         </span>
       </section>
-      <section class="learners-company">
+      <section class="learners-company animate">
         <h2>Our learners work at</h2>
         <div class="company_logos flex-center">
           <img src="./src/static/amazon.svg" alt="" />
