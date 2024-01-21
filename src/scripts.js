@@ -231,15 +231,16 @@ const toAnimate = document.querySelectorAll(".animate");
 
 const intObserver = new IntersectionObserver(
   (entries) => {
-    entries.forEach((entry) => {
+    entries.forEach((entry, intObserver) => {
       console.log(entry.target.classList);
       if (!entry.isIntersecting) {
         return;
       }
       entry.target.classList.add("animated");
+      intObserver.unobserve(entry.target);
     });
   },
-  { root: null, threshold: 0, rootMargin: "-200px" },
+  { root: null, threshold: 0.4, rootMargin: "0px 0px -100px 0px" },
 );
 toAnimate.forEach((element) => {
   intObserver.observe(element);

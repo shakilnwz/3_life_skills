@@ -349,6 +349,7 @@ header a {
 .close-form:hover {
   background-color: var(--color-btn);
 }
+
 /*
 .indicator {
   width: 100%;
@@ -370,6 +371,7 @@ header a {
   content: "";
   background-color: var(--color-btn);
 }*/
+
 .newsletter {
   overflow-x: hidden;
   display: flex;
@@ -416,6 +418,7 @@ header a {
     opacity: 1;
   }
 }
+
 .second-step > label,
 input {
   display: inline-block;
@@ -437,6 +440,7 @@ input {
   border-radius: 2rem;
   border: none;
 }
+
 #form_next.btn {
   user-select: none;
   cursor: pointer;
@@ -454,7 +458,7 @@ input {
   gap: clamp(0.3rem, 1vw, 2rem);
   position: relative;
   transition: all 0.3s ease-in-out;
-  z-index: 2;
+  z-index: 999;
   font-weight: var(--fw-medium);
 }
 
@@ -462,8 +466,11 @@ input {
   gap: clamp(0.3rem, 1vw, 2rem);
   position: relative;
   transition: all 0.3s ease;
+  z-index: 9999;
 }
-
+.nav__menu a > img {
+  vertical-align: middle;
+}
 .nav__menu > li {
   padding: 1rem;
   border-bottom: 4px solid transparent;
@@ -895,7 +902,7 @@ input {
   border: 1px solid var(--color-btn-border);
   background-color: var(--color-font-white);
   bottom: calc(40% - 1.5rem);
-  z-index: 99;
+  z-index: 9;
   opacity: 0.1;
   transition: all 0.3s ease;
   user-select: none;
@@ -1090,17 +1097,6 @@ footer h3 {
     height: 4rem;
   }
 
-  .hero::after {
-    position: relative;
-    bottom: 12rem;
-    right: 7rem;
-  }
-
-  .hero::before {
-    top: 7rem;
-    left: -5rem;
-  }
-
   .header__layout {
     flex-direction: row !important;
   }
@@ -1225,10 +1221,30 @@ footer h3 {
   .flex-center {
     flex-wrap: wrap;
   }
+  .hero {
+    --header-height: 4.5rem;
+    --hero-top-pad: 3.58rem;
+    background-position-y: -9rem;
+  }
+  .hero::after {
+    position: relative;
+    bottom: 12rem;
+    right: 7rem;
+    z-index: 1;
+  }
+
+  .hero::before {
+    top: 4rem;
+    left: -9rem;
+    z-index: 1;
+  }
+  .hero__cta {
+    padding-bottom: 6rem;
+  }
 
   #skill-req {
-    justify-self: center;
-    width: fit-content;
+    margin: 0 auto;
+    width: 80%;
     flex-direction: column;
     align-content: center;
     align-items: flex-start;
@@ -1249,6 +1265,7 @@ footer h3 {
   }
 
   .skill {
+    width: 100%;
     padding-right: 4rem;
   }
 
@@ -1371,8 +1388,25 @@ footer h3 {
 
   .hero {
     text-align: center;
+    background-position-y: 0rem;
+  }
+  .hero::after {
+    bottom: 7rem;
+    right: 7rem;
   }
 
+  .hero::before {
+    top: 7rem;
+    left: -7rem;
+  }
+
+  #skill-req {
+    text-align: left;
+    width: 100%;
+  }
+  .hero__cta {
+    padding-bottom: 3rem;
+  }
   .total_enrolled {
     padding-top: 0.5rem;
     display: block;
