@@ -240,7 +240,7 @@ const intObserver = new IntersectionObserver(
       intObserver.unobserve(entry.target);
     });
   },
-  { root: null, threshold: 0.4, rootMargin: "0px 0px -100px 0px" },
+  { root: null, threshold: 0.5, rootMargin: "0px 0px -100px 0px" },
 );
 toAnimate.forEach((element) => {
   intObserver.observe(element);
