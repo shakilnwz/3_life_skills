@@ -701,7 +701,7 @@ input {
 }
 
 /* .required-skills {
-    padding-top: clamp(4rem, 15%, 11.3rem);
+padding-top: clamp(4rem, 15%, 11.3rem);
 } */
 
 #skill-req {
@@ -792,7 +792,8 @@ input {
     gap: 2.3rem;
     font-weight: var(--fw-medium);
 }
-.stick{
+
+.stick {
     position: sticky;
     top: var(--push-from-top);
     color: var(--color-font-white);
@@ -801,6 +802,7 @@ input {
     padding: 1rem !important;
     z-index: 4;
 }
+
 .social {
     display: inline-flex;
     vertical-align: center;
@@ -834,13 +836,16 @@ input {
     background-position: right bottom;
     line-height: 4.2rem;
 }
+
 .summary__text {
     padding-bottom: 2rem;
     line-height: 1.6rem;
 }
-.summary p{
+
+.summary p {
     font-size: var(--fs-p-lrg);
 }
+
 .summary {
     cursor: pointer;
     user-select: none;
@@ -886,7 +891,8 @@ input {
     border: none;
     border-bottom: 1px solid #c4e2f1;
 }
-.about__author{
+
+.about__author {
     padding-bottom: 9.3rem;
 }
 
@@ -895,7 +901,7 @@ input {
     padding: 1.4rem 0;
 }
 
-.about__author a:not(.author){
+.about__author a:not(.author) {
     font-weight: var(--fw-medium);
     padding-top: 0.5rem;
 }
@@ -951,19 +957,19 @@ input {
     position: absolute;
     border: 1px solid var(--color-btn-border);
     background-color: var(--color-font-white);
-    bottom: calc(40% - 1.5rem);
-    z-index: 9;
-    opacity: 0.1;
+    bottom: 2rem;
+    z-index: 4;
+    opacity: 0.4;
     transition: all 0.3s ease;
     user-select: none;
 }
 
 .scroller.left {
-    left: 0;
+    left: calc(50% - 6.5rem);
 }
 
 .scroller.right {
-    right: 0;
+    right: calc(50% - 6.5rem);
 }
 
 .scroller:hover {
@@ -1004,18 +1010,19 @@ input {
 }
 
 
-.stars>img{
+.stars>img {
     margin-inline: 0.30rem;
     width: 2.15rem;
     aspect-ratio: 1;
 }
+
 .learner_country {
     font-weight: var(--fw-medium);
 }
 
 .learners-company {
     text-align: center;
-    padding-block:9.1rem 10rem;
+    padding-block: 9.1rem 10rem;
 }
 
 .learners-company>h2 {
@@ -1096,6 +1103,7 @@ footer h3 {
     padding-right: 1.2rem;
 
 }
+
 .footer__d_container {
     justify-content: space-between;
     flex-wrap: wrap;
@@ -1104,8 +1112,7 @@ footer h3 {
     padding-bottom: 10rem;
 }
 
-.footer__d_container h6
- {
+.footer__d_container h6 {
     font-weight: var(--fw-medium);
     color: var(--color-font-white);
     padding-bottom: 2.6rem;
@@ -1123,20 +1130,24 @@ footer h3 {
 .company__detail {
     max-width: 41.4rem;
 }
-.company__detail>img{
+
+.company__detail>img {
     width: 10.6rem;
     padding-bottom: 3.1rem
 }
 
-.company__links{
+.company__links {
     padding-right: 3.5rem;
 }
-.footer_social_links{
+
+.footer_social_links {
     padding-right: 2.5rem;
 }
-.resources{
+
+.resources {
     padding-right: 1.5rem;
 }
+
 .toc {
     text-align: center;
 }
@@ -1165,15 +1176,19 @@ footer h3 {
         --fs-h5: 2rem;
         --fs-h6: 1.8rem;
     }
-    .logo{
+
+    .logo {
         padding-block: 0.7rem 0;
     }
+
     .logo>img {
         height: 5rem;
     }
-    section{
+
+    section {
         padding-block: 2rem;
     }
+
     .header__layout {
         flex-direction: row !important;
     }
@@ -1302,7 +1317,7 @@ footer h3 {
     .hero {
         --header-height: 6.5rem;
         --hero-top-pad: 3.58rem;
-        background-position-y: -15rem;
+        background-position-y: -10rem;
     }
 
     .hero::after {
@@ -1313,7 +1328,7 @@ footer h3 {
     }
 
     .hero::before {
-        display: none; 
+        display: none;
     }
 
     .hero__cta {
@@ -1335,7 +1350,7 @@ footer h3 {
         padding: 0.5rem 0;
     }
 
-    #skill-req li:nth-child(4){
+    #skill-req li:nth-child(4) {
         padding-right: 6.12rem;
     }
 
@@ -1349,9 +1364,10 @@ footer h3 {
 
     .skill {
         width: 100%;
-        padding-right: 4rem;
+        padding-right: 2rem;
     }
-    .course_detail{
+
+    .course_detail {
         padding-bottom: 1rem;
         gap: 1rem;
     }
@@ -1360,9 +1376,11 @@ footer h3 {
         width: 100%;
         flex-wrap: wrap;
     }
-    .course_detail__summary li{
+
+    .course_detail__summary li {
         padding-right: 0;
     }
+
     .curriculum__right-actions {
         width: 100%;
     }
@@ -1376,26 +1394,17 @@ footer h3 {
         flex-wrap: nowrap;
         gap: 1rem;
     }
-    
+
     .learners-company,
-    .about__author{
+    .about__author {
         padding-block: 4rem;
     }
-    .review{
+
+    .review {
         padding-top: 4rem;
     }
-    .scroller {
-        /* aspect-ratio: 1; */
-        bottom: 2rem;
-    }
 
-    .scroller.left {
-        left: calc(50% - 6.5rem);
-    }
 
-    .scroller.right {
-        right: calc(50% - 6.5rem);
-    }
 
     .review__cards {
         /* carousel review card section */
@@ -1451,14 +1460,15 @@ footer h3 {
     }
 
     @keyframes goes {
-    to {
-        transform: translateX(calc(-50% - 2rem));
-    }
+        to {
+            transform: translateX(calc(-50% - 2rem));
+        }
     }
 
-    .hero__invitation{
+    .hero__invitation {
         padding-top: 5rem;
     }
+
     .office {
         width: clamp(9rem, 18vw, 15rem);
         bottom: -7rem;
@@ -1470,11 +1480,13 @@ footer h3 {
         gap: 2rem;
         justify-content: center;
     }
+
     .company__links,
     .resources,
-    .footer_social_links{
+    .footer_social_links {
         padding-right: 0;
     }
+
     .footer__d_container h6,
     .company__detail>img {
         padding-bottom: 1.5rem;
@@ -1497,9 +1509,11 @@ footer h3 {
     .pagenav {
         line-height: 2.6rem;
     }
+
     .pagenav a+a:before {
-    padding-inline: 0.2rem 0.4rem;
+        padding-inline: 0.2rem 0.4rem;
     }
+
     #profile__card {
         position: fixed;
         top: 6rem;
@@ -1540,24 +1554,29 @@ footer h3 {
         padding-top: 0.5rem;
         display: block;
     }
-    .about-course{
+
+    .about-course {
         gap: 2rem;
     }
+
     .skill {
-        padding: 2rem;
+        padding: 2.5rem;
     }
 
     .course_detail__summary {
         flex-direction: column;
         align-items: flex-start;
     }
-    .stick .course_detail__summary{
+
+    .stick .course_detail__summary {
         height: 0px;
         overflow: hidden;
     }
-    .course_detail.stick{
+
+    .course_detail.stick {
         gap: 0rem;
     }
+
     .curriculum__right-actions {
         gap: 2rem;
     }
@@ -1566,19 +1585,22 @@ footer h3 {
         padding: 0.5rem 2rem;
         line-height: 3rem;
     }
-    .author{
+
+    .author {
         padding-bottom: 0.5rem;
     }
+
     .review__cards {
         /* carousel review card section */
         --card-inview: 1;
         --card-gapbetween: 2rem;
         --card-width: calc((100% / var(--card-inview)));
     }
-    
-    .learners-company > h2{
+
+    .learners-company>h2 {
         padding-bottom: 2rem;
     }
+
     .company_logos {
         grid-template-columns: 1fr 1fr;
     }
