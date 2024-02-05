@@ -635,6 +635,8 @@ input {
     position: relative;
     bottom: 10rem;
     right: 7rem;
+    z-index: 0;
+
 }
 
 .hero::before {
@@ -702,12 +704,12 @@ input {
     padding-left: 0.7rem;
 }
 
-/* .required-skills {
-padding-top: clamp(4rem, 15%, 11.3rem);
-} */
+.required-skills {
+    position: relative;
+    z-index: 3;
+} 
 
 #skill-req {
-    position: relative;
     flex-wrap: wrap;
     gap: clamp(0.3rem, 1vw, 2rem);
     justify-content: space-around;
@@ -716,7 +718,6 @@ padding-top: clamp(4rem, 15%, 11.3rem);
     padding: 3.8rem 0 2.6rem;
     border-radius: 0.6rem;
     box-shadow: 14px 11px 45px 0px rgba(0, 0, 0, 0.06);
-    z-index: 3;
 }
 
 #skill-req li {
