@@ -13,13 +13,7 @@ const profileBlock = document.querySelector("#profile_block");
 const profileCard = document.querySelector("#profile__card");
 
 profileBlock.onclick = function () {
-    if (this.dataset.visibility == "hidden") {
-        profileCard.style.visibility = "initial";
-        this.dataset.visibility = "shown";
-    } else {
-        profileCard.style.visibility = "hidden";
-        this.dataset.visibility = "hidden";
-    }
+    profileCard.classList.toggle('profile__card_active')
 };
 
 // details reveal on click tab
@@ -30,13 +24,11 @@ summary.forEach((elem) => {
             this.parentElement.classList.remove("active"); 
             // for closing the childs if parent is closed
             let childTab = this.parentElement.querySelectorAll('.details');
-            if (childTab.length > 0 ){
-                childTab.forEach((child)=>{
-                    if(child.classList.contains("active")){
-                        child.classList.remove('active');
-                    }
-                })
-            };
+            childTab.forEach((child)=>{
+                if(child.classList.contains("active")){
+                    child.classList.remove('active');
+                }
+            })
 
         } else {
             this.parentElement.classList.add("active");
@@ -173,10 +165,10 @@ function revealNav() {
 
 //scroll to top button
 const scrollTop = document.querySelector("#scroll-top");
-
 scrollTop.onclick = () => {
     window.scrollTo(0, 0);
 };
+
 //show hide the scroll to top button
 function scrollToTop() {
     if (window.innerHeight < window.scrollY) {
@@ -207,13 +199,8 @@ window.addEventListener("scroll", () => {
     scrollProgBar();
 });
 
-// for offsetting hero from the top
-// const headerHeight = getComputedStyle(menuHead).height
-// console.log(headerHeight)
-// const hero = document.querySelector(".hero")
-// hero.style.setProperty('--header-height', headerHeight)
+// loader spinner
 const loader = document.querySelector(".loader");
-
 setTimeout(() => {
     loader.classList.add("loader__none");
 }, 500);
@@ -221,7 +208,6 @@ setTimeout(() => {
 //window.onload = () => {
 //  loader.classList.add("loader__none");
 //};
-//alternative idea=> animation time can be set
 
 // multipage form
 const formNext = document.querySelector("#form_next");
@@ -284,3 +270,8 @@ if (autoscroll.parentElement.clientWidth < autoscroll.clientWidth) {
     })
     autoscroll.classList.add('go')
 }
+
+
+
+
+

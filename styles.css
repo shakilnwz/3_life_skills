@@ -484,22 +484,22 @@ input {
 }
 
 .nav__submenu {
-    width: 25%;
+    width: 0px;
+    overflow: hidden;
     text-align: center;
-    visibility: hidden;
-    top: 4.5rem;
+    top: 5.6rem;
     left: calc(50% - 1rem);
     position: absolute;
     background-color: var(--color-hero-bg);
     padding-bottom: 1rem;
     border-radius: 1rem;
     z-index: 99;
-    /* transition: all 0.3s ease; */
-    box-shadow: -1px 1px 10px 5px var(--color-font-sec);
+    transition: width 0.3s ease-in-out;
 }
 
 .nav__menu>li:hover .nav__submenu {
-    visibility: initial;
+    width: 25%;
+    box-shadow: -1px 1px 10px 5px var(--color-font-sec);
 }
 
 .nav__submenu>li {
@@ -534,33 +534,34 @@ input {
     position: relative;
     display: grid;
     place-items: center;
-    transition: all 0.3s ease-in-out;
 }
 
 #profile_block:hover {
     background-color: var(--color-btn-border);
 }
 
-#profile_block:hover #profile__card {
-    visibility: initial;
-}
+
 
 #profile__card {
-    visibility: hidden;
+    overflow: hidden;
+    width: 0rem;
+    height: 0rem;
     flex-direction: column;
     justify-content: space-around;
     position: absolute;
-    top: 4.5rem;
+    top: 5.5rem;
     left: calc(50% - 12.5rem);
-    width: 25rem;
-    height: 25rem;
     background-color: var(--color-font-white);
     border-radius: 1.5rem;
     color: var(--color-font);
     font-weight: 600;
-    border: 1px solid var(--color-font-sec);
-    box-shadow: -1px 1px 10px 5px var(--color-font-sec);
     transition: all 0.3s ease-in-out;
+}
+.profile__card_active{
+    width: 25rem !important;
+    box-shadow: -1px 1px 10px 5px var(--color-font-sec) !important;
+    height: 25rem !important;
+    border: 1px solid var(--color-font-sec) !important;
 }
 
 #profile__card>svg {
@@ -615,7 +616,6 @@ input {
     overflow: hidden;
     position: relative;
     z-index: 1;
-    /* padding-block: clamp(4rem, 10%, 8.6rem) clamp(4rem, 15%, 11.3rem); */
 }
 
 .hero::before,
@@ -1307,7 +1307,7 @@ footer h3 {
     #profile__card {
         top: 4rem;
         left: -20rem;
-        height: 20rem;
+        /* height: 20rem; */
     }
 
     .flex-center {
@@ -1518,8 +1518,8 @@ footer h3 {
         position: fixed;
         top: 6rem;
         left: calc(50% - 45vw);
-        width: 90vw;
-        height: 25rem;
+        /* width: 90vw; */
+        /* height: 25rem; */
     }
 
     #paperplane {
