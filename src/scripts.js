@@ -1,3 +1,4 @@
+const root = document.documentElement;
 //nav menu
 const openNav = document.querySelector("#nav__open");
 const navMenu = document.querySelector(".nav__menu");
@@ -56,6 +57,28 @@ expandAll.addEventListener("click", (e) => {
     e.target.innerText = "Expand All Sections";
   }
 });
+
+// sticky options for tab
+const table = document.querySelector('.curriculum');
+
+
+
+const tablehead = document.querySelector('.course_detail');
+window.onscroll = function (e) {
+    let tableHeight = table.getBoundingClientRect().height;
+    let tableBottom = table.offsetTop + tableHeight
+    if (this.scrollY > table.offsetTop) {
+
+        tablehead.classList.add('stick');
+    } else {
+        tablehead.classList.remove('stick');
+    }
+    if (this.scrollY > tableBottom) {
+        tablehead.classList.remove('stick');
+    }
+
+}
+
 
 //auto carousel
 const reviewSlides = document.querySelector(".review_slides");
@@ -119,6 +142,7 @@ window.addEventListener("resize", (e) => {
 
 //header scroll behavior
 const menuHead = document.querySelector("header");
+let menuHeadHeight = menuHead.getBoundingClientRect().height;
 let lastScrollPosition = 0;
 let scrollDirection = "down";
 
@@ -129,16 +153,21 @@ function revealNav() {
     // Scrolling down
     lastScrollPosition = currentScrollPosition;
     menuHead.classList.remove("active-header");
+        root.style.setProperty('--push-from-top', '0rem');
+
   } else if (lastScrollPosition > currentScrollPosition) {
     // Scrolling up
     lastScrollPosition = currentScrollPosition;
     scrollDirection = "up";
     menuHead.classList.add("active-header");
+    root.style.setProperty('--push-from-top', `${menuHeadHeight}px`);
   }
 
   // Check if the scroll position is less than 120 to toggle the header class
   if (currentScrollPosition < 120) {
     menuHead.classList.remove("active-header");
+        root.style.setProperty('--push-from-top', '0rem');
+
   }
 }
 
@@ -208,11 +237,10 @@ const currentTime = new Date();
 closeForm.onclick = (e) => {
   document.cookie = `closetime = ${currentTime.getTime()}`;
   e.target.parentElement.classList.add("loader__none");
-  console.log(document.cookie);
 };
 
 let lastCloseTime = document.cookie.split("=");
-let showInterval = 60000; //1mins
+let showInterval = 3600 * 60000; //1mins
 let delayForm = 7000; //7second
 
 setTimeout(() => {
@@ -230,14 +258,14 @@ setTimeout(() => {
 const toAnimate = document.querySelectorAll(".animate");
 
 const intObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry, intObserver) => {
-      console.log(entry.target.classList);
+  (entries, intObserver) => {
+    entries.forEach((entry) => {
       if (!entry.isIntersecting) {
         return;
+      } else {
+        entry.target.classList.add("animated");
+        intObserver.unobserve(entry.target);
       }
-      entry.target.classList.add("animated");
-      intObserver.unobserve(entry.target);
     });
   },
   { root: null, threshold: 0.5, rootMargin: "0px 0px -100px 0px" },
@@ -245,3 +273,14 @@ const intObserver = new IntersectionObserver(
 toAnimate.forEach((element) => {
   intObserver.observe(element);
 });
+
+//autoscroll if width exceeds
+const autoscroll = document.querySelector('.autoscroll')
+const item = Array.from(autoscroll.children)
+if (autoscroll.parentElement.clientWidth < autoscroll.clientWidth) {
+    item.forEach(x => {
+        const duplicatedItem = x.cloneNode(true)
+        autoscroll.appendChild(duplicatedItem)
+    })
+    autoscroll.classList.add('go')
+}
